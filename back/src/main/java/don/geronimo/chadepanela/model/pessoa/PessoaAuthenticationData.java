@@ -1,6 +1,13 @@
 package don.geronimo.chadepanela.model.pessoa;
 
 public class PessoaAuthenticationData {
+    @Override
+    public String toString() {
+        return "PessoaAuthenticationData{" +
+                "id='" + id + '\'' +
+                ", claim='" + claim + '\'' +
+                '}';
+    }
 
     public PessoaAuthenticationData(Pessoa p){
         this.id = p.getId();

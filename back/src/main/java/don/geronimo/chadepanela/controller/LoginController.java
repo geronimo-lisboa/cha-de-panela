@@ -14,25 +14,30 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.ExceptionHandler;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
+import javax.servlet.http.HttpServletRequest;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 
 @RestController
 public class LoginController {
-    @Value("jwtSecret")
+    @Value("${jwtSecret}")
     private String jwtSecret;
-    @Value("authenticationData")
+    @Value("${claimFieldName}")
     private String claimFieldName;
     private PessoaService pessoaService;
     @Autowired
     public LoginController(PessoaService pessoaService){
         this.pessoaService = pessoaService;
+    }
+
+    @GetMapping("/secure/teste")
+    public ResponseEntity<?> testeJWT(final HttpServletRequest request) throws UserNotFoundException {
+        PessoaAuthenticationData pessoaAuthenticationData = (PessoaAuthenticationData) request.getAttribute("pessoaAuthenticationData");
+        Pessoa p =pessoaService.getPessoaById(pessoaAuthenticationData.getId());
+        return ResponseEntity.ok( p );
     }
 
     @PostMapping("/login")
