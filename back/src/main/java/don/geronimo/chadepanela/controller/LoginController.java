@@ -14,6 +14,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
@@ -53,7 +54,7 @@ public class LoginController {
 
         return ResponseEntity.ok(response);
     }
-
+    @ExceptionHandler(UserNotFoundException.class)
     public ResponseEntity<?> pessoaNaoEncontradaException(Exception ex){
         MensagemErro erro = new MensagemErro(HttpStatus.FORBIDDEN, "Usuario não encontrado", ex);
         return new ResponseEntity<MensagemErro>(erro, HttpStatus.FORBIDDEN);
