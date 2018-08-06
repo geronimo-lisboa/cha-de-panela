@@ -1,21 +1,61 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import './App.css';
 
+
+class LoginForm extends Component {
+    constructor(props){
+        super(props);
+        this.onLoginInputChange = this.onLoginInputChange.bind(this);
+        this.onSenhaInputChange = this.onSenhaInputChange.bind(this);
+        this.onButtonSubmitClick = this.onButtonSubmitClick.bind(this);
+    }
+
+    onButtonSubmitClick(){
+
+    }
+
+    onLoginInputChange(val){
+
+    }
+
+    onSenhaInputChange(val){
+
+    }
+
+    render(){
+        return(
+          <div>
+              <div>Login:<input onChange={this.onLoginInputChange}/></div>
+              <div>Senha:<input onChange={this.onSenhaInputChange}/></div>
+              <button onClick={this.onButtonSubmitClick}>Entrar</button>
+          </div>
+        );
+    }
+}
+
 class App extends Component {
-  render() {
-    return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to React</h1>
-        </header>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
-      </div>
-    );
-  }
+    constructor(props){
+        super(props);
+        let initialState = {"currentApplicationState":"login"}
+        this.state = initialState;
+        this.onLoginButtonSubmit = this.onLoginButtonSubmit.bind(this);
+    }
+
+    onLoginButtonSubmit(loginData){
+
+    }
+
+    render() {
+        if(this.state.currentApplicationState==="login"){
+            return (
+                <LoginForm onLoginButtonSubmit={this.onLoginButtonSubmit}/>
+            );
+        }else{
+            return(
+                <div>TA LOGADAÇO!</div>
+            );
+        }
+    }
 }
 
 export default App;
