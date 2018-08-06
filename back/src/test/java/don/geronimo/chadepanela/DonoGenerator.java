@@ -2,6 +2,7 @@ package don.geronimo.chadepanela;
 
 import don.geronimo.chadepanela.model.dono.Dono;
 import don.geronimo.chadepanela.repository.DonoRepository;
+import don.geronimo.chadepanela.repository.PessoaRepository;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -13,11 +14,11 @@ import org.springframework.test.context.junit4.SpringRunner;
 @SpringBootTest
 public class DonoGenerator {
     @Autowired
-    private DonoRepository donoRepository;
+    private PessoaRepository donoRepository;
     @Before
     public void generateDonos(){
-        Dono testeErika = donoRepository.findByEmail("erikaeluciano2016@gmail.com");
-        Dono testeLuciano = donoRepository.findByEmail("luciano.geronimo.fnord@gmail.com");
+        Dono testeErika = (Dono) donoRepository.findByEmail("erikaeluciano2016@gmail.com");
+        Dono testeLuciano = (Dono)donoRepository.findByEmail("luciano.geronimo.fnord@gmail.com");
         if(testeErika==null && testeLuciano==null){
             //(String id, String nome, String email, String login, String senha)
             Dono erika = new Dono("Erika", "erikaeluciano2016@gmail.com", "erika", "abc,123");
@@ -29,9 +30,9 @@ public class DonoGenerator {
 
     @Test
     public void testeDonos() {
-        Dono erika = donoRepository.findByLoginAndSenha("erika", "abc,123");
+        Dono erika = (Dono)donoRepository.findByLoginAndSenha("erika", "abc,123");
         assert (erika!=null);
-        Dono luciano = donoRepository.findByLoginAndSenha("luciano", "abc,123");
+        Dono luciano = (Dono)donoRepository.findByLoginAndSenha("luciano", "abc,123");
         assert (luciano!=null);
     }
 }
