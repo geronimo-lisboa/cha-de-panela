@@ -1,5 +1,5 @@
 package don.geronimo.chadepanela;
-
+import java.util.logging.Logger;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import don.geronimo.chadepanela.model.dono.Dono;
@@ -19,9 +19,15 @@ import org.springframework.util.LinkedMultiValueMap;
 import org.springframework.util.MultiValueMap;
 import org.springframework.web.client.RestTemplate;
 
+import java.util.HashMap;
+import java.util.Map;
+
 @RunWith(SpringRunner.class)
 @SpringBootTest
 public class PessoaRepositoryTest {
+
+    private final static Logger LOGGER = Logger.getLogger(PessoaRepositoryTest.class.getName());
+
     @Autowired
     private PessoaRepository pessoaRepository;
     @Test
@@ -31,18 +37,13 @@ public class PessoaRepositoryTest {
         assert(p1.getClass().equals(Dono.class));
     }
 
-//    @Test
-//    public void testeToken() throws JsonProcessingException {
-//        HttpHeaders headers = new HttpHeaders();
-//        headers.setContentType(MediaType.APPLICATION_JSON);
-//        PessoaDTO dto = new PessoaDTO("erika","abc,123");
-//        ObjectMapper mapper = new ObjectMapper();
-//        String myJson = mapper.writeValueAsString(dto);
-//
-//
-//
-//        RestTemplate restTemplate = new RestTemplate();
-//        ResponseEntity<String> response = restTemplate.postForEntity("url","myJson",String.class); //( "http://localhost:8080/login", request , String.class );
-//        System.out.println("aaaa");
-//    }
+    @Test
+    public void testeToken() throws JsonProcessingException {
+        PessoaDTO dto = new PessoaDTO("erika","abc,123");
+        String url = "http://localhost:8080/login/";
+        RestTemplate restTemplate = new RestTemplate();
+        Map<String,String> result = restTemplate.postForObject(url, dto, HashMap.class);
+        assert ( result.containsKey("token")==true);
+        LOGGER.info("TOKEN GERADO = "+result.get("token"));
+    }
 }
