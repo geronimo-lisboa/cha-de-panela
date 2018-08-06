@@ -2,12 +2,14 @@ package don.geronimo.chadepanela.model.pessoa;
 
 import java.util.Objects;
 
-public class Pessoa {
+public abstract class Pessoa {
     protected String id;
     protected String nome;
     protected String email;
     protected String login;
     protected String senha;
+
+    public abstract String getClaim();
 
     @Override
     public String toString() {
