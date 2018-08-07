@@ -6,10 +6,7 @@ import don.geronimo.chadepanela.services.PessoaService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -40,6 +37,13 @@ public class ConvidadoController {
         //pega a lista atualizada
         List<Convidado> convidados = pessoaService.getAllConvidados();
         //retorna
+        return ResponseEntity.ok(convidados);
+    }
+
+    @DeleteMapping("/secure/convidados/{id}")
+    public ResponseEntity<?> delete(@PathVariable String id){
+        pessoaService.deleteConvidado(id);
+        List<Convidado> convidados = pessoaService.getAllConvidados();
         return ResponseEntity.ok(convidados);
     }
 

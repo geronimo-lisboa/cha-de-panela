@@ -3,6 +3,7 @@ class ServerInterface{
         this.login = this.login.bind(this);
         this.getConvidados = this.getConvidados.bind(this);
         this.createNewConvidado = this.createNewConvidado.bind(this);
+        this.deleteConvidado = this.deleteConvidado.bind(this);
         this.loginPath = "http://localhost:8080/login/"
         this.convidadosPath="http://localhost:8080/secure/convidados"
     }
@@ -38,6 +39,18 @@ class ServerInterface{
                 'Content-Type':'application/json'
             },
             body: JSON.stringify(newConvidadoData),
+        }).then(response=>response.json());
+    }
+
+    deleteConvidado(token, idConvidado){
+        return fetch(this.convidadosPath+"/"+idConvidado, {
+            method:'DELETE',
+            headers:{
+                Authorization:this.assembleToken(token),
+                Accept:'application/json',
+                'Content-Type':'application/json'
+            },
+            body: {id:idConvidado},
         }).then(response=>response.json());
     }
 

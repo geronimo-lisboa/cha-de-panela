@@ -47,12 +47,22 @@ class NewConvidadoForm extends Component {
 }
 
 class ConvidadoRow extends Component{
+    constructor(props){
+        super(props);
+        this.onDeleteConvidadoClick = this.onDeleteConvidadoClick.bind(this);
+    }
+
+    onDeleteConvidadoClick(){
+        this.props.deleteConvidado(this.props.convidado.id);
+    }
+
     render(){
         return(
         <div>
             <span>
                 {this.props.convidado.nome}
                 <button>Enviar Email</button>
+                <button onClick={this.onDeleteConvidadoClick}>Excluir Convidado</button>
             </span>
         </div>
         );
@@ -62,7 +72,10 @@ class ConvidadoRow extends Component{
 class ConvidadosTable extends Component{
     render(){
         const listaDeConvidados = this.props.convidados.map((current)=>{
-           return <ConvidadoRow convidado={current}/>
+           return <ConvidadoRow
+               convidado={current}
+               deleteConvidado={this.props.deleteConvidado}
+           />
         });
         return(
             <div>
@@ -77,7 +90,10 @@ class ConvidadoPanel extends Component{
         return(
             <div>
                 <NewConvidadoForm createNewConvidado={this.props.createNewConvidado}/>
-                <ConvidadosTable convidados={this.props.convidados}/>
+                <ConvidadosTable
+                    convidados={this.props.convidados}
+                    deleteConvidado={this.props.deleteConvidado}
+                />
             </div>
         )
     }
@@ -99,6 +115,7 @@ class DonoDashboard extends Component {
         this.state={convidados:[]};
         this.createNewConvidado = this.createNewConvidado.bind(this);
         this.storeConvidadosInState = this.storeConvidadosInState.bind(this);
+        this.deleteConvidado = this.deleteConvidado.bind(this);
     }
 
     storeConvidadosInState(jsonsDosConvidados){
@@ -107,6 +124,12 @@ class DonoDashboard extends Component {
         this.setState(newState);
     }
 
+    deleteConvidado(idConvidado){
+        this.props.deleteConvidado(idConvidado)
+            .then(serverData=>{
+                this.storeConvidadosInState(serverData);
+            });
+    }
     //Como a lista de convidados vive aqui eu preciso atualizar esse componente qdo um novo convidado for criado, com os
     //dados vindos do servidor
     createNewConvidado(newConvidadoData){
@@ -131,6 +154,7 @@ class DonoDashboard extends Component {
                 <PanelHello nome={this.props.nome}/>
                 <ConvidadoPanel
                     convidados={this.state.convidados}
+                    deleteConvidado={this.deleteConvidado}
                     createNewConvidado={this.createNewConvidado}/>
                 <PresentePanel/>
             </div>

@@ -80,4 +80,9 @@ public class PessoaService {
         convidado.setId(convidadoDTO.getId());
         return convidado;
     }
+
+    public void deleteConvidado(String id) {
+        Convidado c = convidadoRepository.findById(id).get();
+        convidadoRepository.delete(c);
+    }
 }

@@ -15,6 +15,7 @@ class App extends Component {
         this.serverInterface = new ServerInterface();
         this.getListaDeConvidados = this.getListaDeConvidados.bind(this);
         this.createNewConvidado = this.createNewConvidado.bind(this);
+        this.deleteConvidado = this.deleteConvidado.bind(this);
         // //PRA TESTE
         // let testState = {nome: "Erika", token: "eyJhbGciOiJIUzI1NiJ9.eyJcImF1dGhlbnRpY2F0aW9uRGF0Y…2Njd9.CwYuoRImXUUFn-7lHkc3TFobtGt8mmpEpsOPkAhXXYo", perfil: "DONO"};
         // this.state ={
@@ -43,6 +44,10 @@ class App extends Component {
             });
     }
 
+    deleteConvidado(idConvidado){
+        return this.serverInterface.deleteConvidado(this.state.token, idConvidado);
+    }
+
     createNewConvidado(newConvidadoData){
         return this.serverInterface.createNewConvidado(this.state.token, newConvidadoData);
     }
@@ -64,6 +69,7 @@ class App extends Component {
                     nome={this.state.nome}
                     getListaDeConvidados={this.getListaDeConvidados}
                     createNewConvidado={this.createNewConvidado}
+                    deleteConvidado={this.deleteConvidado}
                 />
                 );
             }else if (this.state.tipoDeUsuario ==="CONVIDADO"){
