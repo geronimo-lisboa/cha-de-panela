@@ -7,7 +7,7 @@ import './App.css';
 class App extends Component {
     constructor(props){
         super(props);
-        let initialState = {"currentApplicationState":"login"}
+        let initialState = {currentApplicationState:"login"}
         this.state = initialState;
         this.onLoginButtonSubmit = this.onLoginButtonSubmit.bind(this);
         this.serverInterface = new ServerInterface();
@@ -15,8 +15,17 @@ class App extends Component {
 
     onLoginButtonSubmit(loginData){
         this.serverInterface.login(loginData)
-            .then(whatIsHere=>{
-                console.log(whatIsHere);
+            .then(serverData=>{
+                console.log(serverData);
+                if(serverData.status==403){
+                    console.log("SAAAAAI");
+                }else{
+                    const newState = Object.assign({}, this.state, {
+                        token : serverData.token,
+                        currentApplicationState : "logado"
+                    });
+                    this.setState(newState);
+                }
             });
     }
 
@@ -25,10 +34,13 @@ class App extends Component {
             return (
                 <LoginForm onLoginButtonSubmit={this.onLoginButtonSubmit}/>
             );
-        }else{
-            return(
-                <div>TA LOGADAÇO!</div>
-            );
+        }
+        else if (this.state.currentApplicationState==="logado"){
+            return (
+                <div>
+                    BLABLABLABLA...
+                </div>
+            )
         }
     }
 }
