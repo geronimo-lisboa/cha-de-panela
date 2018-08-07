@@ -16,14 +16,7 @@ class App extends Component {
         this.getListaDeConvidados = this.getListaDeConvidados.bind(this);
         this.createNewConvidado = this.createNewConvidado.bind(this);
         this.deleteConvidado = this.deleteConvidado.bind(this);
-        // //PRA TESTE
-        // let testState = {nome: "Erika", token: "eyJhbGciOiJIUzI1NiJ9.eyJcImF1dGhlbnRpY2F0aW9uRGF0Y…2Njd9.CwYuoRImXUUFn-7lHkc3TFobtGt8mmpEpsOPkAhXXYo", perfil: "DONO"};
-        // this.state ={
-        //     token : testState.token,
-        //     tipoDeUsuario : testState.perfil,
-        //     nome : testState.nome,
-        //     currentApplicationState : "logado"
-        // };
+        this.enviarEmail = this.enviarEmail.bind(this);
     }
 
     onLoginButtonSubmit(loginData){
@@ -42,6 +35,10 @@ class App extends Component {
                     this.setState(newState);
                 }
             });
+    }
+
+    enviarEmail(idDoConvidado){
+        return this.serverInterface.enviarEmail(this.state.token, idDoConvidado);
     }
 
     deleteConvidado(idConvidado){
@@ -70,6 +67,7 @@ class App extends Component {
                     getListaDeConvidados={this.getListaDeConvidados}
                     createNewConvidado={this.createNewConvidado}
                     deleteConvidado={this.deleteConvidado}
+                    enviarEmail={this.enviarEmail}
                 />
                 );
             }else if (this.state.tipoDeUsuario ==="CONVIDADO"){

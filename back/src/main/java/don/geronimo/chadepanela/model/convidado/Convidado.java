@@ -8,6 +8,7 @@ import java.util.Date;
 
 public class Convidado extends Pessoa {
     private Date ultimoLogin;
+    private boolean conviteEnviado;
     @Override
     public String getClaim() {
         return "CONVIDADO";
@@ -25,5 +26,13 @@ public class Convidado extends Pessoa {
 
     public void setUltimoLogin(Date ultimoLogin) {
         this.ultimoLogin = ultimoLogin;
+    }
+
+    public boolean getConviteEnviado() {
+        return conviteEnviado;
+    }
+
+    public void setConviteEnviado(boolean conviteEnviado) {
+        this.conviteEnviado = conviteEnviado;
     }
 }

@@ -5,12 +5,12 @@ public class ConvidadoDTO {
     private String nome;
     private String email;
     private String login;
+    private boolean conviteEnviado;
 
     public ConvidadoDTO() {
     }
 
     public ConvidadoDTO(String nome, String email, String login) {
-
         this.nome = nome;
         this.email = email;
         this.login = login;
@@ -55,5 +55,13 @@ public class ConvidadoDTO {
 
     public void setLogin(String login) {
         this.login = login;
+    }
+
+    public boolean isConviteEnviado() {
+        return conviteEnviado;
+    }
+
+    public void setConviteEnviado(boolean conviteEnviado) {
+        this.conviteEnviado = conviteEnviado;
     }
 }

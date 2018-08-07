@@ -50,19 +50,31 @@ class ConvidadoRow extends Component{
     constructor(props){
         super(props);
         this.onDeleteConvidadoClick = this.onDeleteConvidadoClick.bind(this);
+        this.onEnviarEmailClick = this.onEnviarEmailClick.bind(this);
     }
 
     onDeleteConvidadoClick(){
         this.props.deleteConvidado(this.props.convidado.id);
     }
 
+    onEnviarEmailClick(){
+        this.props.enviarEmail(this.props.convidado.id);
+    }
+
     render(){
+        var infoConviteEnviado;
+        if(this.props.convidado.conviteEnviado===true){
+            infoConviteEnviado = <span>Convite Enviado</span>
+        }else{
+            infoConviteEnviado = <span>Convite por enviar</span>
+        }
         return(
         <div>
             <span>
                 {this.props.convidado.nome}
-                <button>Enviar Email</button>
+                <button onClick={this.onEnviarEmailClick}>Enviar Email</button>
                 <button onClick={this.onDeleteConvidadoClick}>Excluir Convidado</button>
+                {infoConviteEnviado}
             </span>
         </div>
         );
@@ -75,6 +87,7 @@ class ConvidadosTable extends Component{
            return <ConvidadoRow
                convidado={current}
                deleteConvidado={this.props.deleteConvidado}
+               enviarEmail={this.props.enviarEmail}
            />
         });
         return(
@@ -93,6 +106,7 @@ class ConvidadoPanel extends Component{
                 <ConvidadosTable
                     convidados={this.props.convidados}
                     deleteConvidado={this.props.deleteConvidado}
+                    enviarEmail={this.props.enviarEmail}
                 />
             </div>
         )
@@ -116,6 +130,14 @@ class DonoDashboard extends Component {
         this.createNewConvidado = this.createNewConvidado.bind(this);
         this.storeConvidadosInState = this.storeConvidadosInState.bind(this);
         this.deleteConvidado = this.deleteConvidado.bind(this);
+        this.enviarEmail = this.enviarEmail.bind(this);
+    }
+
+    enviarEmail(idConvidado){
+        this.props.enviarEmail(idConvidado)
+            .then(serverData=>{
+               this.storeConvidadosInState(serverData);
+            });
     }
 
     storeConvidadosInState(jsonsDosConvidados){
@@ -155,7 +177,9 @@ class DonoDashboard extends Component {
                 <ConvidadoPanel
                     convidados={this.state.convidados}
                     deleteConvidado={this.deleteConvidado}
-                    createNewConvidado={this.createNewConvidado}/>
+                    createNewConvidado={this.createNewConvidado}
+                    enviarEmail={this.enviarEmail}
+                />
                 <PresentePanel/>
             </div>
         )

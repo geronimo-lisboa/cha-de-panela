@@ -4,8 +4,21 @@ class ServerInterface{
         this.getConvidados = this.getConvidados.bind(this);
         this.createNewConvidado = this.createNewConvidado.bind(this);
         this.deleteConvidado = this.deleteConvidado.bind(this);
-        this.loginPath = "http://localhost:8080/login/"
-        this.convidadosPath="http://localhost:8080/secure/convidados"
+        this.enviarEmail = this.enviarEmail.bind(this);
+        this.loginPath = "http://localhost:8080/login/";
+        this.convidadosPath="http://localhost:8080/secure/convidados";
+        this.enviarEmailPath="http://localhost:8080/secure/convidados/mail/";
+    }
+
+    enviarEmail(token, idDoConvidado){
+        return fetch(this.enviarEmailPath+idDoConvidado, {
+            method:'GET',
+            headers:{
+                Authorization:this.assembleToken(token),
+                Accept:'application/json',
+                'Content-Type':'application/json'
+            },
+        }).then(response=>response.json());
     }
 
     login(loginData){
