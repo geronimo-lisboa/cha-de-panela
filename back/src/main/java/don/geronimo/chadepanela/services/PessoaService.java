@@ -5,6 +5,7 @@ import com.fasterxml.jackson.databind.JsonSerializer;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import don.geronimo.chadepanela.exceptions.UserNotFoundException;
 import don.geronimo.chadepanela.model.convidado.Convidado;
+import don.geronimo.chadepanela.model.convidado.ConvidadoDTO;
 import don.geronimo.chadepanela.model.pessoa.Pessoa;
 import don.geronimo.chadepanela.model.pessoa.PessoaAuthenticationData;
 import don.geronimo.chadepanela.repository.ConvidadoRepository;
@@ -17,6 +18,8 @@ import java.io.IOException;
 import java.util.List;
 import java.util.Optional;
 
+
+//TODO: Separar em DonoService, ConvidadoService e PessoaService;
 @Service
 public class PessoaService {
     private PessoaRepository pessoaRepository;
@@ -51,21 +54,30 @@ public class PessoaService {
     }
 
     public Pessoa getPessoaById(String id) throws UserNotFoundException {
-        Optional<Pessoa> pop = pessoaRepository.findById(id);
-        if(pop.isPresent()){
-            return pop.get();
-        }
-        else{
+        Pessoa pop = pessoaRepository.findById(id);
+        if(pop!=null){
+            return pop;
+        }else{
             throw new UserNotFoundException();
         }
 
     }
 
     public List<Convidado> getAllConvidados() {
-        return convidadoRepository.findAll();
+        List<Convidado> convidados = convidadoRepository.findAll();
+        return convidados;
     }
 
     public Convidado addConvidado(Convidado c) {
         return convidadoRepository.save(c);
+    }
+
+    public Convidado createConvidadoFromDTO(ConvidadoDTO convidadoDTO) {
+        Convidado convidado = new Convidado();
+        convidado.setNome(convidadoDTO.getNome());
+        convidado.setEmail(convidadoDTO.getEmail());
+        convidado.setLogin(convidadoDTO.getLogin());
+        convidado.setId(convidadoDTO.getId());
+        return convidado;
     }
 }

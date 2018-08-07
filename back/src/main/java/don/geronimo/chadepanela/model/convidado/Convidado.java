@@ -3,8 +3,11 @@ package don.geronimo.chadepanela.model.convidado;
 import don.geronimo.chadepanela.model.pessoa.Pessoa;
 import org.springframework.data.mongodb.core.mapping.Document;
 
-@Document(collection = "Pessoa")
+import java.sql.Timestamp;
+import java.util.Date;
+
 public class Convidado extends Pessoa {
+    private Date ultimoLogin;
     @Override
     public String getClaim() {
         return "CONVIDADO";
@@ -15,4 +18,12 @@ public class Convidado extends Pessoa {
     }
 
     public Convidado(){}
+
+    public Date getUltimoLogin() {
+        return ultimoLogin;
+    }
+
+    public void setUltimoLogin(Date ultimoLogin) {
+        this.ultimoLogin = ultimoLogin;
+    }
 }

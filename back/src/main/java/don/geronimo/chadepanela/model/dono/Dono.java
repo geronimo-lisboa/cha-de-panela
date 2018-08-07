@@ -6,8 +6,8 @@ import org.springframework.data.mongodb.core.mapping.Document;
 /**
  * Dono é o dono da lista do chá de panela, quem pode mexer nela,
  * no caso sou eu e a erika*/
-@Document(collection = "Pessoa")
 public class Dono extends Pessoa {
+    private String teste;
     @Override
     public String getClaim() {
         return "DONO";
@@ -22,5 +22,13 @@ public class Dono extends Pessoa {
     }
 
     public Dono() {
+    }
+
+    public String getTeste() {
+        return teste;
+    }
+
+    public void setTeste(String teste) {
+        this.teste = teste;
     }
 }

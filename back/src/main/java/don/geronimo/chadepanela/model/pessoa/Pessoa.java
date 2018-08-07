@@ -4,7 +4,7 @@ import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.util.Objects;
 
-@Document(collection = "Pessoa")
+
 public abstract class Pessoa {
     protected String id;
     protected String nome;

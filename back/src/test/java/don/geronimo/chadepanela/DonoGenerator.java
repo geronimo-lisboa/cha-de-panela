@@ -14,7 +14,7 @@ import org.springframework.test.context.junit4.SpringRunner;
 @SpringBootTest
 public class DonoGenerator {
     @Autowired
-    private PessoaRepository donoRepository;
+    private DonoRepository donoRepository;
     @Before
     public void generateDonos(){
         Dono testeErika = (Dono) donoRepository.findByEmail("erikaeluciano2016@gmail.com");
@@ -22,7 +22,9 @@ public class DonoGenerator {
         if(testeErika==null && testeLuciano==null){
             //(String id, String nome, String email, String login, String senha)
             Dono erika = new Dono("Erika", "erikaeluciano2016@gmail.com", "erika", "abc,123");
+            erika.setTeste("aaaa");
             Dono luciano = new Dono("Luciano", "luciano.geronimo.fnord@gmail.com", "luciano", "abc,123");
+            erika.setTeste("bbb");
             donoRepository.save(erika);
             donoRepository.save(luciano);
         }

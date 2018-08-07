@@ -1,11 +1,13 @@
 class ServerInterface{
     constructor(){
         this.login = this.login.bind(this);
+        this.getConvidados = this.getConvidados.bind(this);
+        this.createNewConvidado = this.createNewConvidado.bind(this);
         this.loginPath = "http://localhost:8080/login/"
+        this.convidadosPath="http://localhost:8080/secure/convidados"
     }
 
     login(loginData){
-        console.log("tentando logar ,"+loginData);
         return fetch(this.loginPath,{
             method:'POST',
             headers:{
@@ -14,6 +16,33 @@ class ServerInterface{
             },
             body: JSON.stringify(loginData),
         }).then(response=>response.json());
+    }
+
+    getConvidados(token){
+        return fetch(this.convidadosPath, {
+           method:'GET',
+           headers:{
+               Authorization:this.assembleToken(token),
+               Accept:'application/json',
+               'Content-Type':'application/json'
+           },
+        }).then(response=>response.json());
+    }
+
+    createNewConvidado(token, newConvidadoData){
+        return fetch(this.convidadosPath, {
+            method:'POST',
+            headers:{
+                Authorization:this.assembleToken(token),
+                Accept:'application/json',
+                'Content-Type':'application/json'
+            },
+            body: JSON.stringify(newConvidadoData),
+        }).then(response=>response.json());
+    }
+
+    assembleToken(token){
+        return 'Bearer '+token;
     }
 }
 
