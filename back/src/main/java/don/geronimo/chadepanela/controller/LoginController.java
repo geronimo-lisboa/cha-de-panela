@@ -53,9 +53,9 @@ public class LoginController {
                         .setIssuedAt(new Date())
                         .signWith(SignatureAlgorithm.HS256, jwtSecret)
                         .compact();
-
         Map<String,Object> response = new HashMap<>();
         response.put("token", token);
+        response.put("perfil", pessoa.getClaim());
 
         return ResponseEntity.ok(response);
     }

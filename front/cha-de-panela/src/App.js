@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import LoginForm from './LoginForm';
 import ServerInterface from './ServerInterface';
+import DonoDashboard from './DonoDashboard';
+import ConvidadoDashboard from './ConvidadoDashboard';
 import './App.css';
 
 
@@ -22,6 +24,7 @@ class App extends Component {
                 }else{
                     const newState = Object.assign({}, this.state, {
                         token : serverData.token,
+                        tipoDeUsuario : serverData.perfil,
                         currentApplicationState : "logado"
                     });
                     this.setState(newState);
@@ -36,11 +39,15 @@ class App extends Component {
             );
         }
         else if (this.state.currentApplicationState==="logado"){
-            return (
-                <div>
-                    BLABLABLABLA...
-                </div>
-            )
+            if(this.state.tipoDeUsuario === "DONO"){
+                return(
+                <DonoDashboard/>
+                );
+            }else if (this.state.tipoDeUsuario ==="CONVIDADO"){
+                return(
+                <ConvidadoDashboard/>
+                )
+            }
         }
     }
 }
