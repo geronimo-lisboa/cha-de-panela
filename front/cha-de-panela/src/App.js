@@ -1,37 +1,8 @@
 import React, { Component } from 'react';
+import LoginForm from './LoginForm';
+import ServerInterface from './ServerInterface';
 import './App.css';
 
-
-class LoginForm extends Component {
-    constructor(props){
-        super(props);
-        this.onLoginInputChange = this.onLoginInputChange.bind(this);
-        this.onSenhaInputChange = this.onSenhaInputChange.bind(this);
-        this.onButtonSubmitClick = this.onButtonSubmitClick.bind(this);
-    }
-
-    onButtonSubmitClick(){
-
-    }
-
-    onLoginInputChange(val){
-
-    }
-
-    onSenhaInputChange(val){
-
-    }
-
-    render(){
-        return(
-          <div>
-              <div>Login:<input onChange={this.onLoginInputChange}/></div>
-              <div>Senha:<input onChange={this.onSenhaInputChange}/></div>
-              <button onClick={this.onButtonSubmitClick}>Entrar</button>
-          </div>
-        );
-    }
-}
 
 class App extends Component {
     constructor(props){
@@ -39,10 +10,14 @@ class App extends Component {
         let initialState = {"currentApplicationState":"login"}
         this.state = initialState;
         this.onLoginButtonSubmit = this.onLoginButtonSubmit.bind(this);
+        this.serverInterface = new ServerInterface();
     }
 
     onLoginButtonSubmit(loginData){
-
+        this.serverInterface.login(loginData)
+            .then(whatIsHere=>{
+                console.log(whatIsHere);
+            });
     }
 
     render() {

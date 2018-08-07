@@ -39,7 +39,7 @@ public class LoginController {
         Pessoa p =pessoaService.getPessoaById(pessoaAuthenticationData.getId());
         return ResponseEntity.ok( p );
     }
-
+    @CrossOrigin(origins = "http://localhost:3000")
     @PostMapping("/login")
     public ResponseEntity<?> getToker(@RequestBody PessoaDTO pdto) throws UserNotFoundException, JsonProcessingException {
         //tenta pegar a pessoa dada. Se não encontrar vai dar exceção UserNotFoundException
