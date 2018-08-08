@@ -17,6 +17,22 @@ class App extends Component {
         this.createNewConvidado = this.createNewConvidado.bind(this);
         this.deleteConvidado = this.deleteConvidado.bind(this);
         this.enviarEmail = this.enviarEmail.bind(this);
+        this.getPresentes = this.getPresentes.bind(this);
+        this.addPresente = this.addPresente.bind(this);
+        this.deletePresente = this.deletePresente.bind(this);
+        this.uploadImage = this.uploadImage.bind(this);
+    }
+
+    getPresentes(){
+        return this.serverInterface.getPresentes(this.state.token);
+    }
+
+    addPresente(newPresenteData){
+        return this.serverInterface.addPresente(this.state.token, newPresenteData);
+    }
+
+    deletePresente(idPresente){
+        return this.serverInterface.deletePresente(this.state.token, idPresente);
     }
 
     onLoginButtonSubmit(loginData){
@@ -53,6 +69,10 @@ class App extends Component {
         return this.serverInterface.getConvidados(this.state.token);
     }
 
+    uploadImage(image){
+        this.serverInterface.uploadImage(this.state.token, image);
+    }
+
     render() {
         if(this.state.currentApplicationState==="login"){
             return (
@@ -68,6 +88,10 @@ class App extends Component {
                     createNewConvidado={this.createNewConvidado}
                     deleteConvidado={this.deleteConvidado}
                     enviarEmail={this.enviarEmail}
+                    getPresentes={this.getPresentes}
+                    addPresente={this.addPresente}
+                    deletePresente={this.deletePresente}
+                    uploadImage={this.uploadImage}
                 />
                 );
             }else if (this.state.tipoDeUsuario ==="CONVIDADO"){

@@ -1,113 +1,68 @@
 import React, { Component } from 'react';
+
+import {ConvidadoRow, ConvidadosTable, ConvidadoPanel} from './Convidado'
 import PanelHello from './PanelHello'
 
-class NewConvidadoForm extends Component {
-    constructor(props){
-        super(props);
-        this.state = {nome:"", email:"", login:""};
-        this.onNomeChange = this.onNomeChange.bind(this);
-        this.onEmailChange = this.onEmailChange.bind(this);
-        this.onLoginChange = this.onLoginChange.bind(this);
-        this.onEnviarClick = this.onEnviarClick.bind(this);
-    }
 
-    onNomeChange(src){
-        const newState = Object.assign({}, this.state,{nome:src.currentTarget.value});
-        this.setState(newState);
-    }
-
-    onEmailChange(src){
-        const newState = Object.assign({}, this.state,{email:src.currentTarget.value});
-        this.setState(newState);
-    }
-
-    onLoginChange(src){
-        const newState = Object.assign({}, this.state,{login:src.currentTarget.value});
-        this.setState(newState);
-    }
-
-    onEnviarClick(){
-        const newConvidado = {nome:this.state.nome,
-            email:this.state.email,
-            login:this.state.login,};
-        this.props.createNewConvidado(newConvidado);
-    }
-
+class PresentesRow extends Component{
     render(){
-        return(
+        return (
             <div>
-                <div>Novo Convidado</div>
-                <div> Nome: <input onChange={this.onNomeChange}/></div>
-                <div> Email: <input onChange={this.onEmailChange}/></div>
-                <div> Login: <input onChange={this.onLoginChange}/></div>
-                <div> <button onClick={this.onEnviarClick}>Criar</button> </div>
+                <span>{this.props.presente.nomeDoPresente}</span>
             </div>
-        );
+        )
     }
+
 }
 
-class ConvidadoRow extends Component{
-    constructor(props){
-        super(props);
-        this.onDeleteConvidadoClick = this.onDeleteConvidadoClick.bind(this);
-        this.onEnviarEmailClick = this.onEnviarEmailClick.bind(this);
-    }
-
-    onDeleteConvidadoClick(){
-        this.props.deleteConvidado(this.props.convidado.id);
-    }
-
-    onEnviarEmailClick(){
-        this.props.enviarEmail(this.props.convidado.id);
-    }
-
+class PresentesTable extends Component{
     render(){
-        var infoConviteEnviado;
-        if(this.props.convidado.conviteEnviado===true){
-            infoConviteEnviado = <span>Convite Enviado</span>
-        }else{
-            infoConviteEnviado = <span>Convite por enviar</span>
-        }
-        return(
-        <div>
-            <span>
-                {this.props.convidado.nome}
-                <button onClick={this.onEnviarEmailClick}>Enviar Email</button>
-                <button onClick={this.onDeleteConvidadoClick}>Excluir Convidado</button>
-                {infoConviteEnviado}
-            </span>
-        </div>
-        );
-    }
-}
-
-class ConvidadosTable extends Component{
-    render(){
-        const listaDeConvidados = this.props.convidados.map((current)=>{
-           return <ConvidadoRow
-               convidado={current}
-               deleteConvidado={this.props.deleteConvidado}
-               enviarEmail={this.props.enviarEmail}
-           />
-        });
-        return(
+        const lstPresentes = this.props.presentes.map((currentPresente)=>{
+            return <PresentesRow presente={currentPresente}/>
+        })
+        return (
             <div>
-                {listaDeConvidados}
+                {lstPresentes}
             </div>
         )
     }
 }
 
-class ConvidadoPanel extends Component{
+class NewPresentePanel extends Component{
+    constructor(props){
+        super(props);
+        this.fileChangedHandler = this.fileChangedHandler.bind(this);
+        this.uploadHandler = this.uploadHandler.bind(this);
+        this.onNomeChange = this.onNomeChange.bind(this);
+        this.state = {selectedFile:null, nomeDoPresente:""}
+    }
+
+    onNomeChange(event){
+        const newState = Object.assign({},
+            this.state, {
+                nomeDoPresente:event.currentTarget.value
+        });
+        this.setState(newState);
+    }
+
+    fileChangedHandler(event){
+        const newState = Object.assign({},
+            this.state,{
+                selectedFile : event.target.files[0],
+            });
+        this.setState(newState);
+    }
+
+    uploadHandler(){
+        this.props.uploadImage(this.state.selectedFile);
+    }
+
     render(){
-        return(
+        return (
             <div>
-                <NewConvidadoForm createNewConvidado={this.props.createNewConvidado}/>
-                <ConvidadosTable
-                    convidados={this.props.convidados}
-                    deleteConvidado={this.props.deleteConvidado}
-                    enviarEmail={this.props.enviarEmail}
-                />
+                <div>Nome:<input onChange={this.onNomeChange}/></div>
+                <div>Imagem:<input type="file" onChange={this.fileChangedHandler}/></div>
+                <div><button onClick={this.uploadHandler}>Upload</button></div>
             </div>
         )
     }
@@ -117,7 +72,13 @@ class PresentePanel extends Component{
     render(){
         return(
             <div>
-                Area de gerenciamento dos presentes
+                <div>Presentes</div>
+                <NewPresentePanel
+                    uploadImage={this.props.uploadImage}
+                />
+                <PresentesTable
+                    presentes={this.props.presentes}
+                />
             </div>
         )
     }
@@ -126,9 +87,10 @@ class PresentePanel extends Component{
 class DonoDashboard extends Component {
     constructor(props){
         super(props);
-        this.state={convidados:[]};
+        this.state={convidados:[], presentes:[]};
         this.createNewConvidado = this.createNewConvidado.bind(this);
         this.storeConvidadosInState = this.storeConvidadosInState.bind(this);
+        this.storePresentesInState = this.storePresentesInState.bind(this);
         this.deleteConvidado = this.deleteConvidado.bind(this);
         this.enviarEmail = this.enviarEmail.bind(this);
     }
@@ -142,7 +104,13 @@ class DonoDashboard extends Component {
 
     storeConvidadosInState(jsonsDosConvidados){
         const listConvidados = jsonsDosConvidados.map((currentConvidado)=>(currentConvidado));
-        let newState = {convidados:listConvidados};
+        let newState = Object.assign({}, this.state, {convidados:listConvidados});
+        this.setState(newState);
+    }
+
+    storePresentesInState(jsonsDePresentes){
+        const listPresentes = jsonsDePresentes.map((currentPresente)=>(currentPresente));
+        let newState = Object.assign({}, this.state, {presentes:listPresentes});
         this.setState(newState);
     }
 
@@ -168,6 +136,10 @@ class DonoDashboard extends Component {
                 //mapeia a lista de jsons de convidado pra dentro do convidado panel
                 this.storeConvidadosInState(serverData);
             })
+        this.props.getPresentes()
+            .then(serverData=>{
+                this.storePresentesInState(serverData);
+            })
     }
 
     render(){
@@ -180,7 +152,10 @@ class DonoDashboard extends Component {
                     createNewConvidado={this.createNewConvidado}
                     enviarEmail={this.enviarEmail}
                 />
-                <PresentePanel/>
+                <PresentePanel
+                    presentes={this.state.presentes}
+                    uploadImage={this.props.uploadImage}
+                />
             </div>
         )
     }
