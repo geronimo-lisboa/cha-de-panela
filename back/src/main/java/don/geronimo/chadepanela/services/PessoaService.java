@@ -10,6 +10,7 @@ import don.geronimo.chadepanela.model.pessoa.Pessoa;
 import don.geronimo.chadepanela.model.pessoa.PessoaAuthenticationData;
 import don.geronimo.chadepanela.repository.ConvidadoRepository;
 import don.geronimo.chadepanela.repository.PessoaRepository;
+import don.geronimo.chadepanela.utils.RandomString;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.mail.MailException;
 import org.springframework.mail.SimpleMailMessage;
@@ -84,6 +85,8 @@ public class PessoaService {
     }
 
     public Convidado addConvidado(Convidado c) {
+        RandomString gen = new RandomString(8);
+        c.setSenha(gen.nextString());
         return convidadoRepository.save(c);
     }
 

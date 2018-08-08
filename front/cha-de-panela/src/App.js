@@ -96,7 +96,10 @@ class App extends Component {
                 );
             }else if (this.state.tipoDeUsuario ==="CONVIDADO"){
                 return(
-                <ConvidadoDashboard/>
+                <ConvidadoDashboard
+                    nome={this.state.nome}
+                    getPresentes={this.getPresentes}
+                />
                 )
             }
         }

@@ -14,8 +14,8 @@
       <file leaf-file-name="App.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/App.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="348">
-              <caret line="84" column="22" lean-forward="true" selection-start-line="84" selection-start-column="22" selection-end-line="84" selection-end-column="22" />
+            <state relative-caret-position="569">
+              <caret line="100" column="51" lean-forward="true" selection-start-line="100" selection-start-column="51" selection-end-line="100" selection-end-column="51" />
               <folding>
                 <element signature="n#!!block;n#onLoginButtonSubmit#0;n#App#0" />
               </folding>
@@ -23,11 +23,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="DonoDashboard.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="DonoDashboard.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/DonoDashboard.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="172">
-              <caret line="13" column="45" selection-start-line="13" selection-start-column="45" selection-end-line="13" selection-end-column="45" />
+            <state relative-caret-position="442">
+              <caret line="26" lean-forward="true" selection-start-line="16" selection-end-line="26" />
               <folding>
                 <element signature="e#0#41#0" expanded="true" />
               </folding>
@@ -35,11 +35,26 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ServerInterface.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/ServerInterface.js">
+      <file leaf-file-name="Convidado.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Convidado.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="85">
-              <caret line="38" column="18" selection-start-line="38" selection-start-column="4" selection-end-line="38" selection-end-column="18" />
+            <state relative-caret-position="204">
+              <caret line="45" column="32" lean-forward="true" selection-start-line="45" selection-start-column="32" selection-end-line="45" selection-end-column="32" />
+              <folding>
+                <element signature="n#ConvidadoRow#0" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ConvidadoDashboard.js" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/ConvidadoDashboard.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="170">
+              <caret line="10" selection-start-line="10" selection-end-line="10" />
+              <folding>
+                <element signature="e#0#41#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -69,12 +84,12 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/src/LoginForm.js" />
-        <option value="$PROJECT_DIR$/src/ConvidadoDashboard.js" />
         <option value="$PROJECT_DIR$/src/PanelHello.js" />
         <option value="$PROJECT_DIR$/src/Convidado.js" />
-        <option value="$PROJECT_DIR$/src/App.js" />
         <option value="$PROJECT_DIR$/src/ServerInterface.js" />
         <option value="$PROJECT_DIR$/src/DonoDashboard.js" />
+        <option value="$PROJECT_DIR$/src/App.js" />
+        <option value="$PROJECT_DIR$/src/ConvidadoDashboard.js" />
       </list>
     </option>
   </component>
@@ -94,9 +109,10 @@
       <path value="$PROJECT_DIR$/package.json" />
     </packageJsonPaths>
   </component>
-  <component name="ProjectFrameBounds" extendedState="7">
-    <option name="x" value="-8" />
-    <option name="width" value="977" />
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="x" value="841" />
+    <option name="y" value="332" />
+    <option name="width" value="980" />
     <option name="height" value="1038" />
   </component>
   <component name="ProjectView">
@@ -216,12 +232,12 @@
       <option name="presentableId" value="Default" />
       <updated>1533596228899</updated>
       <workItem from="1533596230828" duration="6847000" />
-      <workItem from="1533659747198" duration="25258000" />
+      <workItem from="1533659747198" duration="26826000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="32105000" />
+    <option name="totallyTimeSpent" value="33673000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
@@ -248,7 +264,7 @@
       <window_info anchor="bottom" id="Run" order="7" weight="0.26368877" />
       <window_info id="npm" order="1" sideWeight="0.18982388" side_tool="true" weight="0.5159501" />
       <window_info anchor="bottom" id="Terminal" order="3" />
-      <window_info content_ui="combo" id="Project" order="5" sideWeight="0.81017613" weight="0.31551498" />
+      <window_info active="true" content_ui="combo" id="Project" order="5" sideWeight="0.81017613" visible="true" weight="0.31510416" />
       <window_info anchor="bottom" id="Find" order="6" weight="0.32913166" />
       <window_info anchor="right" id="Theme Preview" order="2" />
       <window_info id="Favorites" order="4" side_tool="true" />
@@ -305,20 +321,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/PanelHello.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="6" column="50" selection-start-line="6" selection-start-column="50" selection-end-line="6" selection-end-column="50" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/ConvidadoDashboard.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="51">
-          <caret line="3" column="13" lean-forward="true" selection-start-line="3" selection-start-column="13" selection-end-line="3" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/LoginForm.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="306">
@@ -343,6 +345,20 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/ServerInterface.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="38" column="18" selection-start-line="38" selection-start-column="4" selection-end-line="38" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/PanelHello.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="6" column="50" selection-start-line="6" selection-start-column="50" selection-end-line="6" selection-end-column="50" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/Convidado.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="204">
@@ -353,17 +369,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/ServerInterface.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="38" column="18" selection-start-line="38" selection-start-column="4" selection-end-line="38" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/App.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="348">
-          <caret line="84" column="22" lean-forward="true" selection-start-line="84" selection-start-column="22" selection-end-line="84" selection-end-column="22" />
+        <state relative-caret-position="569">
+          <caret line="100" column="51" lean-forward="true" selection-start-line="100" selection-start-column="51" selection-end-line="100" selection-end-column="51" />
           <folding>
             <element signature="n#!!block;n#onLoginButtonSubmit#0;n#App#0" />
           </folding>
@@ -372,8 +381,18 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/DonoDashboard.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="172">
-          <caret line="13" column="45" selection-start-line="13" selection-start-column="45" selection-end-line="13" selection-end-column="45" />
+        <state relative-caret-position="442">
+          <caret line="26" lean-forward="true" selection-start-line="16" selection-end-line="26" />
+          <folding>
+            <element signature="e#0#41#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/ConvidadoDashboard.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="10" selection-start-line="10" selection-end-line="10" />
           <folding>
             <element signature="e#0#41#0" expanded="true" />
           </folding>
