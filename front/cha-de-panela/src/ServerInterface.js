@@ -18,20 +18,16 @@ class ServerInterface{
         this.convidadosPath="http://localhost:8080/secure/convidados";
         this.enviarEmailPath="http://localhost:8080/secure/convidados/mail/";
         this.presentesPath = "http://localhost:8080/secure/presentes/";
-        this.uploadImageTeste = "http://localhost:8080/secure/testeUpload/";
+        this.uploadImagePath = "http://localhost:8080/secure/presentes/imageUpload/";
     }
 
     uploadImage(token, image){
         console.log("entrando no teste de upload");
         const formData = new FormData();
         formData.append('myFile', image, image.name)
-        axios.post(this.uploadImageTeste,
+        axios.post(this.uploadImagePath,
             formData,
             {headers: { Authorization:this.assembleToken(token)}  });
-        // console.log("entrando no teste de upload");
-        // axios.post(this.uploadImageTeste,
-        //     image,
-        //     {headers: { Authorization:this.assembleToken(token)}  });
     }
 
     deletePresente(token, idPresente){
