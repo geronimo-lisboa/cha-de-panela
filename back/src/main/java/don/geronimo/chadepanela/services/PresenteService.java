@@ -5,6 +5,7 @@ import don.geronimo.chadepanela.repository.PresenteRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.Base64;
 import java.util.List;
 
 @Service
@@ -15,7 +16,10 @@ public class PresenteService {
         this.presenteRepository = presenteRepository;
     }
 
-    public Presente addPresente(Presente newPresente){
+    public Presente addPresente(Presente newPresente, byte[] imageData){
+
+        String encoded = Base64.getEncoder().encodeToString(imageData);
+        newPresente.setImageAsBase64(encoded);
         return presenteRepository.save(newPresente);
     }
 

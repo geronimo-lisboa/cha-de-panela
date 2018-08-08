@@ -5,10 +5,22 @@ import PanelHello from './PanelHello'
 
 
 class PresentesRow extends Component{
+    constructor(props){
+        super(props);
+        this.deletePresenteClick = this.deletePresenteClick.bind(this);
+    }
+
+    deletePresenteClick(event){
+        this.props.deletePresente(this.props.presente.id);
+    }
+
     render(){
+        var img = "data:image/jpeg;base64,"+this.props.presente.imageAsBase64;
         return (
             <div>
                 <span>{this.props.presente.nomeDoPresente}</span>
+                <img src={img}/>
+                <button onClick={this.deletePresenteClick}>Delete</button>
             </div>
         )
     }
@@ -18,7 +30,7 @@ class PresentesRow extends Component{
 class PresentesTable extends Component{
     render(){
         const lstPresentes = this.props.presentes.map((currentPresente)=>{
-            return <PresentesRow presente={currentPresente} key={currentPresente.id}/>
+            return <PresentesRow presente={currentPresente} key={currentPresente.id} deletePresente={this.props.deletePresente}/>
         })
         return (
             <div>
@@ -79,7 +91,7 @@ class PresentePanel extends Component{
                 />
                 <PresentesTable
                     presentes={this.props.presentes}
-
+                    deletePresente={this.props.deletePresente}
                 />
             </div>
         )
@@ -96,8 +108,12 @@ class DonoDashboard extends Component {
         this.deleteConvidado = this.deleteConvidado.bind(this);
         this.enviarEmail = this.enviarEmail.bind(this);
         this.salvarPresente = this.salvarPresente.bind(this);
+        this.deletePresente = this.deletePresente.bind(this);
     }
 
+    deletePresente(idPresenteToDie){
+        this.props.deletePresente(idPresenteToDie).then(serverData=>{this.storePresentesInState(serverData)});
+    }
     salvarPresente(presenteData){
         this.props.salvarPresente(presenteData)
             .then(serverData=>{
@@ -166,6 +182,7 @@ class DonoDashboard extends Component {
                     presentes={this.state.presentes}
                     uploadImage={this.props.salvarPresente}
                     salvarPresente={this.salvarPresente}
+                    deletePresente={this.deletePresente}
                 />
             </div>
         )

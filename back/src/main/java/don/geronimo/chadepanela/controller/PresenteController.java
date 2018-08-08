@@ -43,16 +43,10 @@ public class PresenteController {
         InputStream uploadInputStream = file.getInputStream();
         byte[] _buffer = new byte[uploadInputStream.available()];
         uploadInputStream.read(_buffer);
-        Byte[] buffer = new Byte[_buffer.length];
-        int i=0;
-        for(byte b:_buffer){
-            buffer[i++] = b;
-        }
         //Eu tenho o nome do presente e sua imagem : gravar tudo no banco
         Presente newPresente = new Presente();
         newPresente.setNomeDoPresente(nomeDoPresente);
-        newPresente.setImageData(buffer);
-        presenteService.addPresente(newPresente);
+        presenteService.addPresente(newPresente, _buffer);
         //pega a lista atualizada de presentes
         List<Presente> presenteList = presenteService.findAllPresentes();
 

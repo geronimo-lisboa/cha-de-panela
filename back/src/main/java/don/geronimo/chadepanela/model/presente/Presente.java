@@ -5,8 +5,16 @@ import java.util.Objects;
 public class Presente {
     private String id;
     private String nomeDoPresente;
-    private Byte[] imageData;
     private String idConvidado;
+    private String imageAsBase64;
+
+    public String getImageAsBase64() {
+        return imageAsBase64;
+    }
+
+    public void setImageAsBase64(String imageAsBase64) {
+        this.imageAsBase64 = imageAsBase64;
+    }
 
     @Override
     public boolean equals(Object o) {
@@ -16,13 +24,6 @@ public class Presente {
         return Objects.equals(id, presente.id);
     }
 
-    public Byte[] getImageData() {
-        return imageData;
-    }
-
-    public void setImageData(Byte[] imageData) {
-        this.imageData = imageData;
-    }
 
     @Override
     public int hashCode() {

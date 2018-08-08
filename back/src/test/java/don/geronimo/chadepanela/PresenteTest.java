@@ -1,6 +1,7 @@
 package don.geronimo.chadepanela;
 
 import don.geronimo.chadepanela.model.presente.Presente;
+import don.geronimo.chadepanela.repository.PresenteRepository;
 import don.geronimo.chadepanela.services.PresenteService;
 import org.junit.Before;
 import org.junit.Test;
@@ -16,16 +17,11 @@ import java.util.List;
 public class PresenteTest {
     @Autowired
     private PresenteService presenteService;
+    @Autowired
+    private PresenteRepository presenteRepository;
 
-    @Before
-    public void setup(){
-        if(presenteService.findAllPresentes().size()==0){
-            presenteService.addPresente(new Presente("foobar", null));
-        }
-    }
     @Test
-    public void getAllPresentes(){
-        List<Presente> presenteList = presenteService.findAllPresentes();
-        assert (presenteList.size()>0);
+    public void purge(){
+        presenteRepository.deleteAll();
     }
 }
