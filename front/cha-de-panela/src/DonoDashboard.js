@@ -32,7 +32,7 @@ class NewPresentePanel extends Component{
     constructor(props){
         super(props);
         this.fileChangedHandler = this.fileChangedHandler.bind(this);
-        this.uploadHandler = this.uploadHandler.bind(this);
+        this.onSalvarPresenteClick = this.onSalvarPresenteClick.bind(this);
         this.onNomeChange = this.onNomeChange.bind(this);
         this.state = {selectedFile:null, nomeDoPresente:""}
     }
@@ -53,8 +53,9 @@ class NewPresentePanel extends Component{
         this.setState(newState);
     }
 
-    uploadHandler(){
-        this.props.uploadImage(this.state.selectedFile);
+    onSalvarPresenteClick(){
+        this.props.salvarPresente(this.state);
+        //this.props.salvarPresente(this.state.selectedFile);
     }
 
     render(){
@@ -62,7 +63,7 @@ class NewPresentePanel extends Component{
             <div>
                 <div>Nome:<input onChange={this.onNomeChange}/></div>
                 <div>Imagem:<input type="file" onChange={this.fileChangedHandler}/></div>
-                <div><button onClick={this.uploadHandler}>Upload</button></div>
+                <div><button onClick={this.onSalvarPresenteClick}>Salvar</button></div>
             </div>
         )
     }
@@ -74,10 +75,11 @@ class PresentePanel extends Component{
             <div>
                 <div>Presentes</div>
                 <NewPresentePanel
-                    uploadImage={this.props.uploadImage}
+                    salvarPresente={this.props.salvarPresente}
                 />
                 <PresentesTable
                     presentes={this.props.presentes}
+
                 />
             </div>
         )
@@ -93,6 +95,14 @@ class DonoDashboard extends Component {
         this.storePresentesInState = this.storePresentesInState.bind(this);
         this.deleteConvidado = this.deleteConvidado.bind(this);
         this.enviarEmail = this.enviarEmail.bind(this);
+        this.salvarPresente = this.salvarPresente.bind(this);
+    }
+
+    salvarPresente(presenteData){
+        this.props.salvarPresente(presenteData)
+            .then(serverData=>{
+               console.log("o que veio?");
+            });
     }
 
     enviarEmail(idConvidado){
@@ -154,7 +164,8 @@ class DonoDashboard extends Component {
                 />
                 <PresentePanel
                     presentes={this.state.presentes}
-                    uploadImage={this.props.uploadImage}
+                    uploadImage={this.props.salvarPresente}
+                    salvarPresente={this.salvarPresente}
                 />
             </div>
         )

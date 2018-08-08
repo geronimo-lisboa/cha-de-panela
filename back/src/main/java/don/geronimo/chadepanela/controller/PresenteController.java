@@ -13,6 +13,7 @@ import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.util.Collections;
 import java.util.List;
 
 @RestController
@@ -28,33 +29,34 @@ public class PresenteController {
         List<Presente> presenteList = presenteService.findAllPresentes();
         return ResponseEntity.ok(presenteList);
     }
-    @PostMapping("/secure/presentes/")
-    public ResponseEntity<?> add(@RequestBody PresenteDTO presenteDTO){
-        Presente presente = new Presente(presenteDTO.getNome(), null);
-        presenteService.addPresente(presente);
-        List<Presente> presenteList = presenteService.findAllPresentes();
-        return ResponseEntity.ok(presenteList);
-    }
+
     @DeleteMapping("/secure/presentes/{id}")
     public ResponseEntity<?> delete(@PathVariable String id){
         List<Presente> presenteList = presenteService.deletePresenteAndGetUpdatedList(id);
         return ResponseEntity.ok(presenteList);
     }
-    @PostMapping("/secure/presentes/imageUpload/")
-    public ResponseEntity<?> uploadImagem(@RequestParam("myFile") MultipartFile file,
+    @PostMapping("/secure/presentes/")
+    public ResponseEntity<?> salvarPresente(@RequestParam("myFile") MultipartFile file,
+                                          @RequestParam("nomeDoPresente")String nomeDoPresente,
                                           RedirectAttributes redirectAttributes) throws IOException {
-        String filename = file.getName();
+        //Upload e cópia pra uma array de Bytes pra por no objeto
         InputStream uploadInputStream = file.getInputStream();
-        byte[] buffer = new byte[uploadInputStream.available()];
-        uploadInputStream.read(buffer);
+        byte[] _buffer = new byte[uploadInputStream.available()];
+        uploadInputStream.read(_buffer);
+        Byte[] buffer = new Byte[_buffer.length];
+        int i=0;
+        for(byte b:_buffer){
+            buffer[i++] = b;
+        }
+        //Eu tenho o nome do presente e sua imagem : gravar tudo no banco
+        Presente newPresente = new Presente();
+        newPresente.setNomeDoPresente(nomeDoPresente);
+        newPresente.setImageData(buffer);
+        presenteService.addPresente(newPresente);
+        //pega a lista atualizada de presentes
+        List<Presente> presenteList = presenteService.findAllPresentes();
 
-        FileOutputStream fileOutputStream = new FileOutputStream("D:\\programacao\\lista-cha-de-panela\\"+filename);
-        fileOutputStream.write(buffer);
-        fileOutputStream.close();
-        //pega o arquivo e salva no disco pra teste
-        //guarda o arquivo em um lugar temporário
-        System.out.println(file);
-        return ResponseEntity.ok("ainda está testando");
+        return ResponseEntity.ok(presenteList);
     }
 
     @PostMapping("/secure/testeUpload/")

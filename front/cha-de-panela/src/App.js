@@ -20,7 +20,7 @@ class App extends Component {
         this.getPresentes = this.getPresentes.bind(this);
         this.addPresente = this.addPresente.bind(this);
         this.deletePresente = this.deletePresente.bind(this);
-        this.uploadImage = this.uploadImage.bind(this);
+        this.salvarPresente = this.salvarPresente.bind(this);
     }
 
     getPresentes(){
@@ -69,8 +69,8 @@ class App extends Component {
         return this.serverInterface.getConvidados(this.state.token);
     }
 
-    uploadImage(image){
-        this.serverInterface.uploadImage(this.state.token, image);
+    salvarPresente(presenteData){
+        return this.serverInterface.salvarPresente(this.state.token, presenteData);
     }
 
     render() {
@@ -91,7 +91,7 @@ class App extends Component {
                     getPresentes={this.getPresentes}
                     addPresente={this.addPresente}
                     deletePresente={this.deletePresente}
-                    uploadImage={this.uploadImage}
+                    salvarPresente={this.salvarPresente}
                 />
                 );
             }else if (this.state.tipoDeUsuario ==="CONVIDADO"){

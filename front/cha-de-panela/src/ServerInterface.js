@@ -9,22 +9,22 @@ class ServerInterface{
         this.enviarEmail = this.enviarEmail.bind(this);
 
         this.getPresentes = this.getPresentes.bind(this);
-        this.addPresente = this.addPresente.bind(this);
         this.deletePresente = this.deletePresente.bind(this);
-        this.uploadImage = this.uploadImage.bind(this);
+        this.salvarPresente = this.salvarPresente.bind(this);
 
 
         this.loginPath = "http://localhost:8080/login/";
         this.convidadosPath="http://localhost:8080/secure/convidados";
         this.enviarEmailPath="http://localhost:8080/secure/convidados/mail/";
         this.presentesPath = "http://localhost:8080/secure/presentes/";
-        this.uploadImagePath = "http://localhost:8080/secure/presentes/imageUpload/";
+        this.uploadImagePath = "http://localhost:8080/secure/presentes/";
     }
 
-    uploadImage(token, image){
+    salvarPresente(token, presenteData){
         console.log("entrando no teste de upload");
         const formData = new FormData();
-        formData.append('myFile', image, image.name)
+        formData.append('myFile', presenteData.selectedFile, presenteData.selectedFile.name)
+        formData.append('nomeDoPresente', presenteData.nomeDoPresente);
         axios.post(this.uploadImagePath,
             formData,
             {headers: { Authorization:this.assembleToken(token)}  });
@@ -39,18 +39,6 @@ class ServerInterface{
                 'Content-Type':'application/json'
             },
 
-        }).then(response=>response.json());
-    }
-
-    addPresente(token, newPresenteData){
-        return fetch(this.presentesPath, {
-            method:'POST',
-            headers:{
-                Authorization:this.assembleToken(token),
-                Accept:'application/json',
-                'Content-Type':'application/json'
-            },
-            body:JSON.stringify(newPresenteData),
         }).then(response=>response.json());
     }
 

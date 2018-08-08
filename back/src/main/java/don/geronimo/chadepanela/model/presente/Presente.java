@@ -5,6 +5,7 @@ import java.util.Objects;
 public class Presente {
     private String id;
     private String nomeDoPresente;
+    private Byte[] imageData;
     private String idConvidado;
 
     @Override
@@ -13,6 +14,14 @@ public class Presente {
         if (!(o instanceof Presente)) return false;
         Presente presente = (Presente) o;
         return Objects.equals(id, presente.id);
+    }
+
+    public Byte[] getImageData() {
+        return imageData;
+    }
+
+    public void setImageData(Byte[] imageData) {
+        this.imageData = imageData;
     }
 
     @Override
