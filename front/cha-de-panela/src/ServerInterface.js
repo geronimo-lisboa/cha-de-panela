@@ -21,13 +21,19 @@ class ServerInterface{
     }
 
     salvarPresente(token, presenteData){
-        console.log("entrando no teste de upload");
-        const formData = new FormData();
-        formData.append('myFile', presenteData.selectedFile, presenteData.selectedFile.name)
+        var formData = new FormData();
+        formData.append('myFile', presenteData.selectedFile, presenteData.selectedFile.name);
         formData.append('nomeDoPresente', presenteData.nomeDoPresente);
-        axios.post(this.uploadImagePath,
-            formData,
-            {headers: { Authorization:this.assembleToken(token)}  });
+
+        return fetch(this.uploadImagePath,{
+           method:'POST',
+           headers:{
+               Authorization:this.assembleToken(token),
+           },
+            body:formData
+        }).then(
+            response=>response.json()
+        );
     }
 
     deletePresente(token, idPresente){

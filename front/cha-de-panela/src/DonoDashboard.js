@@ -101,7 +101,7 @@ class DonoDashboard extends Component {
     salvarPresente(presenteData){
         this.props.salvarPresente(presenteData)
             .then(serverData=>{
-               console.log("o que veio?");
+               this.storePresentesInState(serverData);
             });
     }
 
