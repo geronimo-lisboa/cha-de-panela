@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-import {ConvidadoRow, ConvidadosTable, ConvidadoPanel} from './Convidado'
+import {ConvidadoPanel} from './Convidado'
 import PanelHello from './PanelHello'
 
 
@@ -18,7 +18,7 @@ class PresentesRow extends Component{
 class PresentesTable extends Component{
     render(){
         const lstPresentes = this.props.presentes.map((currentPresente)=>{
-            return <PresentesRow presente={currentPresente}/>
+            return <PresentesRow presente={currentPresente} key={currentPresente.id}/>
         })
         return (
             <div>

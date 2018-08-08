@@ -43,6 +43,7 @@ export class ConvidadosTable extends Component{
                 convidado={current}
                 deleteConvidado={this.props.deleteConvidado}
                 enviarEmail={this.props.enviarEmail}
+                key={current.id}
             />
         });
         return(
