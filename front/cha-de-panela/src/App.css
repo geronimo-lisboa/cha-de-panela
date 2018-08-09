@@ -54,3 +54,45 @@
 .ButtonLogin:hover {
   background-color: azure;
 }
+
+.AreaConvidadoContainer {
+  display: flex;
+  flex-direction: column;
+}
+
+.PanelHello{
+  order: 0;
+  flex: 0 1 auto;
+  align-items: center;
+  justify-content: center;
+  font-size : 1em;
+  color: white;
+  text-shadow: 2px 2px #000;
+  font-family: Verdana;
+}
+
+.PresenteRow {
+  display: flex;
+  flex-direction: column;
+  margin:10px;
+  border-width: 2px;
+  background-color: rgba(80, 80, 80, 0.3);
+}
+
+.NomeDoPresente{
+  display: flex;
+  flex-direction: row;
+  justify-content : space-between;
+
+  background-color: rgba(80, 80, 80, 0.6);
+  color: white;
+  text-shadow: 2px 2px #000;
+  font-family: Verdana;
+}
+.LabelDoPresente {
+  align-self:flex-start;
+}
+
+.BotaoEscolherPresente {
+  align-self: flex-end;
+}

@@ -3,8 +3,8 @@ import React, { Component } from 'react';
 class PanelHello extends Component {
     render(){
         return(
-            <div>
-                Seja bem vindo, {this.props.nome}.
+            <div className="PanelHello">
+                <span>Seja bem vindo, {this.props.nome}.</span>
             </div>
         )
     }

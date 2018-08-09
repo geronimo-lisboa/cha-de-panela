@@ -126,6 +126,7 @@ class App extends Component {
             }else if (this.state.tipoDeUsuario ==="CONVIDADO"){
                 return(
                     <div className="App">
+                        <div className="AreaConvidadoContainer">
                         <Titulo/>
                         <ConvidadoDashboard
                             nome={this.state.nome}
@@ -134,6 +135,7 @@ class App extends Component {
                             desfazerEscolhaDePresente={this.desfazerEscolhaDePresente}
                             idConvidado={this.state.idPessoa}
                         />
+                        </div>
                     </div>
                 )
             }
