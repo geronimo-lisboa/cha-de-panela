@@ -25,9 +25,16 @@ class SelecaoDePresenteRow extends Component{
         var btnChooseUnchoose = undefined;
         if(this.props.presente.idConvidado === null || this.props.idConvidado === this.props.presente.idConvidado){
             if(this.props.presente.escolhido===true){
-                btnChooseUnchoose = <button onClick={this.onDesfazerEscolhaClick}>Cancelar</button>
+                btnChooseUnchoose = <button
+                    className="ButtonUnchooseGift"
+                    onClick={this.onDesfazerEscolhaClick}
+                >
+                </button>
             }else{
-                btnChooseUnchoose = <button onClick={this.onEscolherClick}>Escolher</button>
+                btnChooseUnchoose = <button
+                    className="ButtonChooseGift"
+                    onClick={this.onEscolherClick}>
+                </button>
             }
         }else{
             btnChooseUnchoose = <span>Já Escolhido</span>
@@ -44,11 +51,12 @@ class SelecaoDePresenteRow extends Component{
                     <div className="BotaoEscolherPresente">
                         <div>
                             {btnChooseUnchoose}
-                            </div>
+                        </div>
                     </div>
                 </div>
-
-                <img src={img}/>
+                <div className="PresentePicture">
+                    <img src={img}/>
+                </div>
             </div>
         )
     }

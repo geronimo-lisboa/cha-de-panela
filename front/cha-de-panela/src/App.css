@@ -96,3 +96,30 @@
 .BotaoEscolherPresente {
   align-self: flex-end;
 }
+
+.PresentePicture {
+  align-self: center;
+}
+.ButtonUnchooseGift{
+  border-radius: 8px;
+  height: 37px;
+  width: 37px;
+  background-image: url('gift-512-red.png');
+  background-size:cover;
+  background-color: rgba(255,255,200,0.8);
+}
+.ButtonUnchooseGift:hover{
+  background-color: lightsalmon;
+}
+
+.ButtonChooseGift{
+  border-radius: 8px;
+  height: 37px;
+  width: 37px;
+  background-image: url('gift-512-green.png');
+  background-size:cover;
+  background-color: rgba(200,255,200,0.8);
+}
+.ButtonChooseGift:hover{
+  background-color: lightgreen;
+}
