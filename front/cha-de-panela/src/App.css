@@ -1,68 +1,43 @@
 .App {
   display: flex;
   flex-direction: column;
+  flex-wrap: wrap;
   justify-content: center;
-  text-align: center;
-  opacity:0.9;
-  background-color:antiquewhite;
-  position:relative;
-  width:100%;
-  height:100%;
-  top:0px;
-  left:0px;
-  z-index:1000;
-  background-image: url('photo_2018-08-07_08-24-52.jpg');
+  align-content: stretch;
+  align-items: center;
+}
+
+.LoginContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  order: 0;
+  flex: 0 1 auto;
+  background-color: cornsilk;
+  height: 100vh;
+}
+
+.Titulo {
+  order: 0;
+  flex: 0 1 auto;
+  align-self: stretch;
+  background-color: darkgoldenrod;
 }
 
 .LoginForm {
-  flex:1;
-  overflow:auto;
-}
+  order: 0;
+  flex: 0 1 auto;
+  align-self: stretch;
+  background-color: blue;
 
-
-.Titulo {
-  overflow:auto;
-  font-size:3em;
-  color: black;
-  text-shadow: 2px 2px #222222;
-  flex:1;
 }
 
 .LoginFields{
-  padding: 10px;
 }
 
 .LoginInputs {
-  font-size: 2em;
-  border-radius:5px;
-}
-
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 80px;
-}
-
-.App-header {
-  background-color: #222;
-  height: 150px;
-  padding: 20px;
-  color: white;
-}
-
-.App-title {
-  font-size: 1.5em;
-}
-
-.App-intro {
-  font-size: large;
-}
-
-@keyframes App-logo-spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
 }
 
 .ButtonLogin {
-  font-size: 2em;
-  border-radius:5px;
 }

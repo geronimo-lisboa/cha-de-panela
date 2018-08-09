@@ -98,9 +98,10 @@ class App extends Component {
         if(this.state.currentApplicationState==="login"){
             return (
                 <div className="App">
-                    <Titulo/>
-                    <LoginForm onLoginButtonSubmit={this.onLoginButtonSubmit}/>
-
+                    <div className="LoginContainer">
+                        <Titulo/>
+                        <LoginForm onLoginButtonSubmit={this.onLoginButtonSubmit}/>
+                    </div>
                 </div>
             );
         }
