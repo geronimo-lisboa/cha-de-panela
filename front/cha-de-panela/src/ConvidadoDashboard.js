@@ -68,6 +68,14 @@ class ConvidadoDashboard extends Component {
         this.storePresentesInState = this.storePresentesInState.bind(this);
         this.desfazerEscolhaDoPresente = this.desfazerEscolhaDoPresente.bind(this);
         this.escolherPresente = this.escolherPresente.bind(this);
+        this.autoRefresh = this.autoRefresh.bind(this)
+    }
+
+    autoRefresh(){
+        this.props.getPresentes()
+            .then(serverData=>{
+                this.storePresentesInState(serverData);
+            });
     }
 
     storePresentesInState(jsonsDePresentes){
@@ -77,6 +85,7 @@ class ConvidadoDashboard extends Component {
     }
 
     componentDidMount(){
+        var intervalId = setInterval(this.autoRefresh, 1000);
         this.props.getPresentes()
             .then(serverData=>{
                this.storePresentesInState(serverData);

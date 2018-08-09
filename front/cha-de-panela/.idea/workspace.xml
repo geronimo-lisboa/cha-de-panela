@@ -20,11 +20,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ConvidadoDashboard.js" pinned="false" current-in-tab="false">
+      <file leaf-file-name="ConvidadoDashboard.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/ConvidadoDashboard.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="442">
-              <caret line="56" column="10" lean-forward="true" selection-start-line="56" selection-start-column="10" selection-end-line="56" selection-end-column="10" />
+            <state relative-caret-position="483">
+              <caret line="87" column="57" selection-start-line="87" selection-start-column="57" selection-end-line="87" selection-end-column="57" />
               <folding>
                 <element signature="e#0#41#0" expanded="true" />
               </folding>
@@ -32,7 +32,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ServerInterface.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="ServerInterface.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/ServerInterface.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="394">
@@ -71,8 +71,8 @@
         <option value="$PROJECT_DIR$/src/Convidado.js" />
         <option value="$PROJECT_DIR$/src/DonoDashboard.js" />
         <option value="$PROJECT_DIR$/src/App.js" />
-        <option value="$PROJECT_DIR$/src/ConvidadoDashboard.js" />
         <option value="$PROJECT_DIR$/src/ServerInterface.js" />
+        <option value="$PROJECT_DIR$/src/ConvidadoDashboard.js" />
       </list>
     </option>
   </component>
@@ -92,7 +92,7 @@
       <path value="$PROJECT_DIR$/package.json" />
     </packageJsonPaths>
   </component>
-  <component name="ProjectFrameBounds" extendedState="1">
+  <component name="ProjectFrameBounds">
     <option name="x" value="-8" />
     <option name="width" value="977" />
     <option name="height" value="1038" />
@@ -214,12 +214,12 @@
       <option name="presentableId" value="Default" />
       <updated>1533596228899</updated>
       <workItem from="1533596230828" duration="6847000" />
-      <workItem from="1533659747198" duration="34656000" />
+      <workItem from="1533659747198" duration="35054000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="41503000" />
+    <option name="totallyTimeSpent" value="41901000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-6" y="0" width="781" height="830" extended-state="0" />
@@ -358,20 +358,20 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/ConvidadoDashboard.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="442">
-          <caret line="56" column="10" lean-forward="true" selection-start-line="56" selection-start-column="10" selection-end-line="56" selection-end-column="10" />
-          <folding>
-            <element signature="e#0#41#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/ServerInterface.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="394">
           <caret line="65" selection-start-line="65" selection-end-line="65" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/ConvidadoDashboard.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="483">
+          <caret line="87" column="57" selection-start-line="87" selection-start-column="57" selection-end-line="87" selection-end-column="57" />
+          <folding>
+            <element signature="e#0#41#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
