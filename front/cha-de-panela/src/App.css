@@ -3,9 +3,9 @@
   flex-direction: column;
   justify-content: center;
   text-align: center;
-  opacity:0.8;
+  opacity:0.9;
   background-color:antiquewhite;
-  position:fixed;
+  position:relative;
   width:100%;
   height:100%;
   top:0px;
@@ -14,12 +14,18 @@
   background-image: url('photo_2018-08-07_08-24-52.jpg');
 }
 
+.LoginForm {
+  flex:1;
+  overflow:auto;
+}
 
 
 .Titulo {
+  overflow:auto;
   font-size:3em;
   color: black;
   text-shadow: 2px 2px #222222;
+  flex:1;
 }
 
 .LoginFields{

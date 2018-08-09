@@ -34,10 +34,10 @@ class SelecaoDePresenteRow extends Component{
         }
         var img = "data:image/jpeg;base64,"+this.props.presente.imageAsBase64;
         return (
-            <div>
-                <span>{this.props.presente.nomeDoPresente}</span>
-                <img src={img}/>
+            <div className="PresenteRow">
+                <div>{this.props.presente.nomeDoPresente}</div>
                 {btnChooseUnchoose}
+                <img src={img}/>
             </div>
         )
     }

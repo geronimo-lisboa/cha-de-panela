@@ -30,7 +30,7 @@ class LoginForm extends Component {
 
     render(){
         return(
-            <div>
+            <div className="LoginForm">
                 <div className="LoginFields"><input className="LoginInputs" placeholder="Login" onChange={this.onLoginInputChange} value={this.state.login}/></div>
                 <div className="LoginFields">
                     <input type="password" className="LoginInputs" placeholder="Senha" onChange={this.onSenhaInputChange} value={this.state.senha}/></div>
