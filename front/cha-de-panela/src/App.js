@@ -5,6 +5,15 @@ import DonoDashboard from './DonoDashboard';
 import ConvidadoDashboard from './ConvidadoDashboard';
 import './App.css';
 
+class Titulo extends Component{
+    render(){
+        return(
+            <div className="Titulo">
+                Chá de Barnela Erika&Luciano
+            </div>
+        );
+    }
+}
 
 class App extends Component {
     constructor(props){
@@ -85,37 +94,46 @@ class App extends Component {
         return this.serverInterface.desfazerEscolhaDePresente(this.state.token, idPresente);
     }
 
-
     render() {
         if(this.state.currentApplicationState==="login"){
             return (
-                <LoginForm onLoginButtonSubmit={this.onLoginButtonSubmit}/>
+                <div className="App">
+                    <Titulo/>
+                    <LoginForm onLoginButtonSubmit={this.onLoginButtonSubmit}/>
+
+                </div>
             );
         }
         else if (this.state.currentApplicationState==="logado"){
             if(this.state.tipoDeUsuario === "DONO"){
                 return(
-                <DonoDashboard
-                    nome={this.state.nome}
-                    getListaDeConvidados={this.getListaDeConvidados}
-                    createNewConvidado={this.createNewConvidado}
-                    deleteConvidado={this.deleteConvidado}
-                    enviarEmail={this.enviarEmail}
-                    getPresentes={this.getPresentes}
-                    addPresente={this.addPresente}
-                    deletePresente={this.deletePresente}
-                    salvarPresente={this.salvarPresente}
-                />
+                    <div className="App">
+                        <Titulo/>
+                        <DonoDashboard
+                            nome={this.state.nome}
+                            getListaDeConvidados={this.getListaDeConvidados}
+                            createNewConvidado={this.createNewConvidado}
+                            deleteConvidado={this.deleteConvidado}
+                            enviarEmail={this.enviarEmail}
+                            getPresentes={this.getPresentes}
+                            addPresente={this.addPresente}
+                            deletePresente={this.deletePresente}
+                            salvarPresente={this.salvarPresente}
+                        />
+                    </div>
                 );
             }else if (this.state.tipoDeUsuario ==="CONVIDADO"){
                 return(
-                <ConvidadoDashboard
-                    nome={this.state.nome}
-                    getPresentes={this.getPresentes}
-                    escolherPresente={this.escolherPresente}
-                    desfazerEscolhaDePresente={this.desfazerEscolhaDePresente}
-                    idConvidado={this.state.idPessoa}
-                />
+                    <div className="App">
+                        <Titulo/>
+                        <ConvidadoDashboard
+                            nome={this.state.nome}
+                            getPresentes={this.getPresentes}
+                            escolherPresente={this.escolherPresente}
+                            desfazerEscolhaDePresente={this.desfazerEscolhaDePresente}
+                            idConvidado={this.state.idPessoa}
+                        />
+                    </div>
                 )
             }
         }

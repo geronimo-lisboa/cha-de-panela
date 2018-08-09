@@ -31,9 +31,10 @@ class LoginForm extends Component {
     render(){
         return(
             <div>
-                <div>Login:<input onChange={this.onLoginInputChange} value={this.state.login}/></div>
-                <div>Senha:<input onChange={this.onSenhaInputChange} value={this.state.senha}/></div>
-                <button onClick={this.onButtonSubmitClick}>Entrar</button>
+                <div className="LoginFields"><input className="LoginInputs" placeholder="Login" onChange={this.onLoginInputChange} value={this.state.login}/></div>
+                <div className="LoginFields">
+                    <input type="password" className="LoginInputs" placeholder="Senha" onChange={this.onSenhaInputChange} value={this.state.senha}/></div>
+                <button className="ButtonLogin" onClick={this.onButtonSubmitClick}>Entrar</button>
             </div>
         );
     }

@@ -1,5 +1,34 @@
 .App {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
   text-align: center;
+  opacity:0.8;
+  background-color:antiquewhite;
+  position:fixed;
+  width:100%;
+  height:100%;
+  top:0px;
+  left:0px;
+  z-index:1000;
+  background-image: url('photo_2018-08-07_08-24-52.jpg');
+}
+
+
+
+.Titulo {
+  font-size:3em;
+  color: black;
+  text-shadow: 2px 2px #222222;
+}
+
+.LoginFields{
+  padding: 10px;
+}
+
+.LoginInputs {
+  font-size: 2em;
+  border-radius:5px;
 }
 
 .App-logo {
@@ -25,4 +54,9 @@
 @keyframes App-logo-spin {
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
+}
+
+.ButtonLogin {
+  font-size: 2em;
+  border-radius:5px;
 }
