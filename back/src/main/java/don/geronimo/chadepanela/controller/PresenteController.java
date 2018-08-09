@@ -1,6 +1,7 @@
 package don.geronimo.chadepanela.controller;
 
 import don.geronimo.chadepanela.model.presente.Presente;
+import don.geronimo.chadepanela.model.presente.PresenteConvidadoDTO;
 import don.geronimo.chadepanela.model.presente.PresenteDTO;
 import don.geronimo.chadepanela.services.PresenteService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,6 +24,7 @@ public class PresenteController {
     public PresenteController(PresenteService presenteService){
         this.presenteService = presenteService;
     }
+
 
     @GetMapping("/secure/presentes/")
     public ResponseEntity<?> getAllPresentes(){

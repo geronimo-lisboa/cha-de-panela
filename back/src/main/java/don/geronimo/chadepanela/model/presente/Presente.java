@@ -5,8 +5,9 @@ import java.util.Objects;
 public class Presente {
     private String id;
     private String nomeDoPresente;
-    private String idConvidado;
     private String imageAsBase64;
+    private boolean escolhido;
+    private String idConvidado;
 
     public String getImageAsBase64() {
         return imageAsBase64;
@@ -14,6 +15,14 @@ public class Presente {
 
     public void setImageAsBase64(String imageAsBase64) {
         this.imageAsBase64 = imageAsBase64;
+    }
+
+    public String getIdConvidado() {
+        return idConvidado;
+    }
+
+    public void setIdConvidado(String idConvidado) {
+        this.idConvidado = idConvidado;
     }
 
     @Override
@@ -35,10 +44,9 @@ public class Presente {
 
     }
 
-    public Presente(String nomeDoPresente, String idConvidado) {
+    public Presente(String nomeDoPresente) {
 
         this.nomeDoPresente = nomeDoPresente;
-        this.idConvidado = idConvidado;
     }
 
     public String getId() {
@@ -58,11 +66,11 @@ public class Presente {
         this.nomeDoPresente = nomeDoPresente;
     }
 
-    public String getIdConvidado() {
-        return idConvidado;
+    public boolean getEscolhido() {
+        return escolhido;
     }
 
-    public void setIdConvidado(String idConvidado) {
-        this.idConvidado = idConvidado;
+    public void setEscolhido(boolean escolhido) {
+        this.escolhido = escolhido;
     }
 }

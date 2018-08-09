@@ -21,6 +21,9 @@ class App extends Component {
         this.addPresente = this.addPresente.bind(this);
         this.deletePresente = this.deletePresente.bind(this);
         this.salvarPresente = this.salvarPresente.bind(this);
+
+        this.escolherPresente = this.escolherPresente.bind(this);
+        this.desfazerEscolhaDePresente = this.desfazerEscolhaDePresente.bind(this);
     }
 
     getPresentes(){
@@ -46,7 +49,8 @@ class App extends Component {
                         token : serverData.token,
                         tipoDeUsuario : serverData.perfil,
                         nome : serverData.nome,
-                        currentApplicationState : "logado"
+                        currentApplicationState : "logado",
+                        idPessoa:serverData.id,
                     });
                     this.setState(newState);
                 }
@@ -72,6 +76,15 @@ class App extends Component {
     salvarPresente(presenteData){
         return this.serverInterface.salvarPresente(this.state.token, presenteData);
     }
+
+    escolherPresente(idPresente){
+        return this.serverInterface.escolherPresente(this.state.token, idPresente);
+    }
+
+    desfazerEscolhaDePresente(idPresente){
+        return this.serverInterface.desfazerEscolhaDePresente(this.state.token, idPresente);
+    }
+
 
     render() {
         if(this.state.currentApplicationState==="login"){
@@ -99,6 +112,9 @@ class App extends Component {
                 <ConvidadoDashboard
                     nome={this.state.nome}
                     getPresentes={this.getPresentes}
+                    escolherPresente={this.escolherPresente}
+                    desfazerEscolhaDePresente={this.desfazerEscolhaDePresente}
+                    idConvidado={this.state.idPessoa}
                 />
                 )
             }

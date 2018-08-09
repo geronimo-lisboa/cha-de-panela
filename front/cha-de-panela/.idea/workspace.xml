@@ -14,47 +14,29 @@
       <file leaf-file-name="App.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/App.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="569">
-              <caret line="100" column="51" lean-forward="true" selection-start-line="100" selection-start-column="51" selection-end-line="100" selection-end-column="51" />
-              <folding>
-                <element signature="n#!!block;n#onLoginButtonSubmit#0;n#App#0" />
-              </folding>
+            <state relative-caret-position="433">
+              <caret line="116" column="52" selection-start-line="116" selection-start-column="52" selection-end-line="116" selection-end-column="52" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="DonoDashboard.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/DonoDashboard.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="442">
-              <caret line="26" lean-forward="true" selection-start-line="16" selection-end-line="26" />
-              <folding>
-                <element signature="e#0#41#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Convidado.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Convidado.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="204">
-              <caret line="45" column="32" lean-forward="true" selection-start-line="45" selection-start-column="32" selection-end-line="45" selection-end-column="32" />
-              <folding>
-                <element signature="n#ConvidadoRow#0" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ConvidadoDashboard.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="ConvidadoDashboard.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/ConvidadoDashboard.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="170">
-              <caret line="10" selection-start-line="10" selection-end-line="10" />
+            <state relative-caret-position="442">
+              <caret line="56" column="10" lean-forward="true" selection-start-line="56" selection-start-column="10" selection-end-line="56" selection-end-column="10" />
               <folding>
                 <element signature="e#0#41#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ServerInterface.js" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/ServerInterface.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="394">
+              <caret line="65" selection-start-line="65" selection-end-line="65" />
             </state>
           </provider>
         </entry>
@@ -78,6 +60,7 @@
       <find>salvarPresente</find>
       <find>addPresente</find>
       <find>NewPresentePanel</find>
+      <find>SelecaoDePresenteRow</find>
     </findStrings>
   </component>
   <component name="IdeDocumentHistory">
@@ -86,10 +69,10 @@
         <option value="$PROJECT_DIR$/src/LoginForm.js" />
         <option value="$PROJECT_DIR$/src/PanelHello.js" />
         <option value="$PROJECT_DIR$/src/Convidado.js" />
-        <option value="$PROJECT_DIR$/src/ServerInterface.js" />
         <option value="$PROJECT_DIR$/src/DonoDashboard.js" />
         <option value="$PROJECT_DIR$/src/App.js" />
         <option value="$PROJECT_DIR$/src/ConvidadoDashboard.js" />
+        <option value="$PROJECT_DIR$/src/ServerInterface.js" />
       </list>
     </option>
   </component>
@@ -109,10 +92,9 @@
       <path value="$PROJECT_DIR$/package.json" />
     </packageJsonPaths>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="841" />
-    <option name="y" value="332" />
-    <option name="width" value="980" />
+  <component name="ProjectFrameBounds" extendedState="1">
+    <option name="x" value="-8" />
+    <option name="width" value="977" />
     <option name="height" value="1038" />
   </component>
   <component name="ProjectView">
@@ -232,15 +214,15 @@
       <option name="presentableId" value="Default" />
       <updated>1533596228899</updated>
       <workItem from="1533596230828" duration="6847000" />
-      <workItem from="1533659747198" duration="26826000" />
+      <workItem from="1533659747198" duration="34656000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="33673000" />
+    <option name="totallyTimeSpent" value="41503000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
+    <frame x="-6" y="0" width="781" height="830" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info anchor="right" id="Palette" order="5" />
@@ -264,7 +246,7 @@
       <window_info anchor="bottom" id="Run" order="7" weight="0.26368877" />
       <window_info id="npm" order="1" sideWeight="0.18982388" side_tool="true" weight="0.5159501" />
       <window_info anchor="bottom" id="Terminal" order="3" />
-      <window_info active="true" content_ui="combo" id="Project" order="5" sideWeight="0.81017613" visible="true" weight="0.31510416" />
+      <window_info content_ui="combo" id="Project" order="5" sideWeight="0.81017613" weight="0.46493506" />
       <window_info anchor="bottom" id="Find" order="6" weight="0.32913166" />
       <window_info anchor="right" id="Theme Preview" order="2" />
       <window_info id="Favorites" order="4" side_tool="true" />
@@ -283,7 +265,7 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="3" />
+      <option name="time" value="6" />
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
@@ -291,9 +273,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="986">
           <caret line="58" column="14" selection-start-line="58" selection-start-column="14" selection-end-line="58" selection-end-column="14" />
-          <folding>
-            <element signature="n#!!block;n#onLoginButtonSubmit#0;n#App#0" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -345,13 +324,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/ServerInterface.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="38" column="18" selection-start-line="38" selection-start-column="4" selection-end-line="38" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/PanelHello.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="102">
@@ -369,16 +341,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/App.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="569">
-          <caret line="100" column="51" lean-forward="true" selection-start-line="100" selection-start-column="51" selection-end-line="100" selection-end-column="51" />
-          <folding>
-            <element signature="n#!!block;n#onLoginButtonSubmit#0;n#App#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/DonoDashboard.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="442">
@@ -389,13 +351,27 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/App.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="433">
+          <caret line="116" column="52" selection-start-line="116" selection-start-column="52" selection-end-line="116" selection-end-column="52" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/ConvidadoDashboard.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="10" selection-start-line="10" selection-end-line="10" />
+        <state relative-caret-position="442">
+          <caret line="56" column="10" lean-forward="true" selection-start-line="56" selection-start-column="10" selection-end-line="56" selection-end-column="10" />
           <folding>
             <element signature="e#0#41#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/ServerInterface.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="394">
+          <caret line="65" selection-start-line="65" selection-end-line="65" />
         </state>
       </provider>
     </entry>

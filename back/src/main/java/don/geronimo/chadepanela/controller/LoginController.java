@@ -57,6 +57,7 @@ public class LoginController {
         response.put("token", token);
         response.put("perfil", pessoa.getClaim());
         response.put("nome", pessoa.getNome());
+        response.put("id", pessoa.getId());
 
         return ResponseEntity.ok(response);
     }
