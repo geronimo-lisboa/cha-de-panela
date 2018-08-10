@@ -12,13 +12,17 @@ import don.geronimo.chadepanela.repository.ConvidadoRepository;
 import don.geronimo.chadepanela.repository.PessoaRepository;
 import don.geronimo.chadepanela.utils.RandomString;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.mail.MailException;
 import org.springframework.mail.SimpleMailMessage;
 import org.springframework.mail.javamail.JavaMailSender;
+import org.springframework.mail.javamail.MimeMessageHelper;
 import org.springframework.stereotype.Service;
 
+import javax.mail.MessagingException;
+import javax.mail.internet.MimeMessage;
 import javax.swing.text.html.Option;
-import java.io.IOException;
+import java.io.*;
 import java.util.List;
 import java.util.Optional;
 
@@ -26,6 +30,9 @@ import java.util.Optional;
 //TODO: Separar em DonoService, ConvidadoService e PessoaService;
 @Service
 public class PessoaService {
+    @Value("${urlDaApp}")
+    private String urlDaApp;
+
     private PessoaRepository pessoaRepository;
     private ConvidadoRepository convidadoRepository;
     @Autowired
@@ -39,13 +46,34 @@ public class PessoaService {
     }
 
 
-    public void enviarConvite(Convidado convidado)throws MailException {
-        SimpleMailMessage message = new SimpleMailMessage();
-        message.setText("Hello from Spring Boot Application");
-        message.setSubject("Teste do envio do convite");
-        message.setTo(convidado.getEmail());
-        message.setFrom("luciano.geronimo.fnord@gmail.com");
-        mailSender.send(message);
+    public void enviarConvite(Convidado convidado) throws MailException, IOException, MessagingException {
+        //Le o arquivo
+        ClassLoader classLoader = getClass().getClassLoader();
+        File file = new File(classLoader.getResource("Convite.html").getFile());
+        FileReader reader = new FileReader(file);
+        BufferedReader in = new BufferedReader(reader);
+        String st;
+        StringBuffer stringBuffer = new StringBuffer();
+        while ((st = in.readLine()) != null){
+            stringBuffer.append(st);
+        }
+        in.close();
+        reader.close();
+        //Faz as substituições no texto
+        String mailText = stringBuffer.toString();
+        mailText = mailText.replaceAll("_NOME_", convidado.getNome())
+                .replaceAll("_URL_", urlDaApp)
+                .replaceAll("_LOGIN_", convidado.getLogin())
+                .replaceAll("_SENHA_", convidado.getSenha());
+        //Envia o email
+        MimeMessage mimeMessage = mailSender.createMimeMessage();
+        MimeMessageHelper helper = new MimeMessageHelper(mimeMessage, false, "utf-8");
+        mimeMessage.setContent(mailText, "text/html");
+        helper.setTo(convidado.getEmail());
+        helper.setSubject("Convite de Erika Thaissa e Luciano Gerônimo");
+        helper.setFrom("luciano.geronimo.fnord@gmail.com");
+        mailSender.send(mimeMessage);
+
         convidado.setConviteEnviado(true);
         convidadoRepository.save(convidado);
     }

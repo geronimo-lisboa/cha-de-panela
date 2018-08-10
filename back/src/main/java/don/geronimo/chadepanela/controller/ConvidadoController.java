@@ -20,6 +20,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.mail.MailException;
 import org.springframework.web.bind.annotation.*;
 
+import javax.mail.MessagingException;
 import javax.servlet.http.HttpServletRequest;
 import java.io.IOException;
 import java.util.List;
@@ -88,7 +89,7 @@ public class ConvidadoController {
     }
 
     @GetMapping("/secure/convidados/mail/{id}")
-    public ResponseEntity<?> sendMail(@PathVariable String id) throws UserNotFoundException {
+    public ResponseEntity<?> sendMail(@PathVariable String id) throws UserNotFoundException, IOException, MessagingException {
         Convidado convidado = (Convidado)pessoaService.getPessoaById(id);
         pessoaService.enviarConvite(convidado);
         //pega a lista atualizada
