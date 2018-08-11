@@ -103,7 +103,7 @@ export class NewConvidadoForm extends Component {
 export class ConvidadoPanel extends Component{
     render(){
         return(
-            <div>
+            <div className="convidadoPanelGlobal">
                 <NewConvidadoForm createNewConvidado={this.props.createNewConvidado}/>
                 <ConvidadosTable
                     convidados={this.props.convidados}

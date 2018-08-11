@@ -25,19 +25,29 @@ class SelecaoDePresenteRow extends Component{
         var btnChooseUnchoose = undefined;
         if(this.props.presente.idConvidado === null || this.props.idConvidado === this.props.presente.idConvidado){
             if(this.props.presente.escolhido===true){
-                btnChooseUnchoose = <button
+                btnChooseUnchoose =
+                <div>
+                    <span>Escolhido por você</span>
+                    <button
                     className="ButtonUnchooseGift"
                     onClick={this.onDesfazerEscolhaClick}
-                >
-                </button>
+                    alt="Desfazer esoolha">
+
+                    </button>
+                </div>
             }else{
-                btnChooseUnchoose = <button
-                    className="ButtonChooseGift"
-                    onClick={this.onEscolherClick}>
-                </button>
+                btnChooseUnchoose =
+                <div>
+                    <span> </span>
+                    <button
+                        className="ButtonChooseGift"
+                        alt="Escolher Presente"
+                        onClick={this.onEscolherClick}>
+                    </button>
+                </div>
             }
         }else{
-            btnChooseUnchoose = <span>Já Escolhido</span>
+            btnChooseUnchoose = <span>Já escolhido por outra pessoa</span>
         }
         var img = "data:image/jpeg;base64,"+this.props.presente.imageAsBase64;
         return (

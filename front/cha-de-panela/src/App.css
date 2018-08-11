@@ -123,3 +123,34 @@
 .ButtonChooseGift:hover{
   background-color: lightgreen;
 }
+
+.rowPresenteTelaDono {
+  background-color: gray;
+}
+
+.tablePresenteTelaDono{
+  background-color: lightsalmon;
+}
+
+.newPresentePanel{
+  background-color: white;
+}
+
+.donoPresentePanelHeader {
+  background-color: lightgreen;
+}
+
+.presentePanelGlobal {
+  background-color: azure;
+
+}
+
+.areaDoDono {
+  background-color: gold;
+}
+
+.convidadoPanelGlobal {
+  background-color: cornsilk;
+}
+
+

@@ -17,7 +17,7 @@ class PresentesRow extends Component{
     render(){
         var img = "data:image/jpeg;base64,"+this.props.presente.imageAsBase64;
         return (
-            <div>
+            <div className="rowPresenteTelaDono">
                 <span>{this.props.presente.nomeDoPresente}</span>
                 <img src={img}/>
                 <button onClick={this.deletePresenteClick}>Delete</button>
@@ -33,7 +33,7 @@ class PresentesTable extends Component{
             return <PresentesRow presente={currentPresente} key={currentPresente.id} deletePresente={this.props.deletePresente}/>
         })
         return (
-            <div>
+            <div className="tablePresenteTelaDono">
                 {lstPresentes}
             </div>
         )
@@ -72,7 +72,7 @@ class NewPresentePanel extends Component{
 
     render(){
         return (
-            <div>
+            <div className="newPresentePanel">
                 <div>Nome:<input onChange={this.onNomeChange}/></div>
                 <div>Imagem:<input type="file" onChange={this.fileChangedHandler}/></div>
                 <div><button onClick={this.onSalvarPresenteClick}>Salvar</button></div>
@@ -84,8 +84,8 @@ class NewPresentePanel extends Component{
 class PresentePanel extends Component{
     render(){
         return(
-            <div>
-                <div>Presentes</div>
+            <div className="presentePanelGlobal">
+                <div className="donoPresentePanelHeader">Presentes</div>
                 <NewPresentePanel
                     salvarPresente={this.props.salvarPresente}
                 />
@@ -170,7 +170,7 @@ class DonoDashboard extends Component {
 
     render(){
         return(
-            <div>
+            <div className="areaDoDono">
                 <PanelHello nome={this.props.nome}/>
                 <ConvidadoPanel
                     convidados={this.state.convidados}
