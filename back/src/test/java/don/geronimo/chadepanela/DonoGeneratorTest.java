@@ -11,7 +11,7 @@ import org.springframework.test.context.junit4.SpringRunner;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
-public class DonoGenerator {
+public class DonoGeneratorTest {
 
     @Autowired
     private DonoRepository donoRepository;
@@ -33,6 +33,7 @@ public class DonoGenerator {
 
     @Test
     public void testeExistenciaDeDonos(){
+	System.out.println("ok?");
         Dono d1  = donoRepository.findByEmail("erikaeluciano2016@gmail.com");
         Dono d2  = donoRepository.findByEmail("luciano.geronimo.fnord@gmail.com");
         assert(d1!=null);

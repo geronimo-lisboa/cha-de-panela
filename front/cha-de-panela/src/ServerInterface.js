@@ -14,14 +14,14 @@ class ServerInterface{
         this.escolherPresente = this.escolherPresente.bind(this);
         this.desfazerEscolhaDePresente = this.desfazerEscolhaDePresente.bind(this);
 
-        this.loginPath = "http://localhost:8080/login/";
-        this.convidadosPath="http://localhost:8080/secure/convidados";
-        this.enviarEmailPath="http://localhost:8080/secure/convidados/mail/";
-        this.presentesPath = "http://localhost:8080/secure/presentes/";
-        this.salvarPresentePath = "http://localhost:8080/secure/presentes/";
+        this.loginPath = "http://50.112.37.102:8080/login/";
+        this.convidadosPath="http://50.112.37.102:8080/secure/convidados";
+        this.enviarEmailPath="http://50.112.37.102:8080/secure/convidados/mail/";
+        this.presentesPath = "http://50.112.37.102:8080/secure/presentes/";
+        this.salvarPresentePath = "http://50.112.37.102:8080/secure/presentes/";
 
-        this.escolherPresentePath = "http://localhost:8080/secure/convidado/presente";
-        this.desfazerEscolhaDePresentePath = "http://localhost:8080/secure/convidado/presente";
+        this.escolherPresentePath = "http://50.112.37.102:8080/secure/convidado/presente";
+        this.desfazerEscolhaDePresentePath = "http://50.112.37.102:8080/secure/convidado/presente";
 
     }
 

@@ -49,7 +49,8 @@ public class PessoaService {
     public void enviarConvite(Convidado convidado) throws MailException, IOException, MessagingException {
         //Le o arquivo
         ClassLoader classLoader = getClass().getClassLoader();
-        File file = new File(classLoader.getResource("Convite.html").getFile());
+        //File file = new File(classLoader.getResource("Convite.html").getFile());
+	File file = new File("/home/ubuntu/cha-de-panela/back/src/main/resources/Convite.html");//Hack horrorso pra por o programa funcionando na produção.
         FileReader reader = new FileReader(file);
         BufferedReader in = new BufferedReader(reader);
         String st;
@@ -71,7 +72,7 @@ public class PessoaService {
         mimeMessage.setContent(mailText, "text/html");
         helper.setTo(convidado.getEmail());
         helper.setSubject("Convite de Erika Thaissa e Luciano Gerônimo");
-        helper.setFrom("luciano.geronimo.fnord@gmail.com");
+        helper.setFrom("erikaeluciano2016@gmail.com");
         mailSender.send(mimeMessage);
 
         convidado.setConviteEnviado(true);
